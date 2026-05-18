@@ -18,8 +18,8 @@
   --card-muted:  #6b3a1a;
   --muted:       #8a7060;
   --font-head:   'Fredoka', 'Impact', sans-serif;
-  --font-mono:   'Space Mono', 'Courier New', monospace;
-  --font-body:   'Poppins', 'Segoe UI', sans-serif;
+  --font-mono:   'Anonymous Pro', 'Courier New', monospace;
+  --font-body:   'Anonymous Pro', 'Courier New', monospace;
   --radius:      8px;
   --transition:  0.25s ease;
 }
