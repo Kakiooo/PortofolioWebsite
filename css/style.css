@@ -336,11 +336,11 @@ h3 { font-size: 1.1rem; }
 /* ── Hero Section ───────────────────────────────────────────────────────── */
 .hero-section {
   background: #000 url('../assets/Profile_Itchio_1.png') no-repeat center bottom / cover;
-  min-height: 40vh;
+  min-height: 70vh;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 8rem 3rem 6rem;
+  padding: 8rem 3rem 2rem;
 }
 
 .hero-name {
