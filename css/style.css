@@ -336,11 +336,11 @@ h3 { font-size: 1.1rem; }
 /* ── Hero Section ───────────────────────────────────────────────────────── */
 .hero-section {
   background: #000;
-  min-height: 70vh;
+  min-height: 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 8rem 3rem 2rem;
+  padding: 8rem 3rem 3rem;
 }
 
 .hero-name {
