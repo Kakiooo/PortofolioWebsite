@@ -343,12 +343,14 @@ h3 { font-size: 1.1rem; }
   padding: 5rem 2rem 12vh;
 }
 
-.hero-logo-img {
-  height: auto;
-  width: auto;
-  max-height: 460px;
-  max-width: 760px;
-  display: block;
+.hero-name {
+  font-family: var(--font-head);
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  color: var(--orange);
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 4px 40px rgba(224, 96, 16, 0.4);
 }
 
 /* ── Home: Intro ────────────────────────────────────────────────────────── */
