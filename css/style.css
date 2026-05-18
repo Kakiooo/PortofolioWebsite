@@ -489,21 +489,22 @@ h3 { font-size: 1.1rem; }
   align-items: center;
   justify-content: center;
   font-size: 2.8rem;
-  transition: transform var(--transition);
+  color: var(--cream);
+  transition: transform var(--transition), color var(--transition);
 }
 
 .skill-cube .skill-svg {
-  color: var(--orange);
+  color: var(--cream);
+  transition: color var(--transition);
 }
-
-.devicon-unity-original { color: #fff; }
 
 .skill-cube .skill-svg svg {
   width: 38px;
   height: 38px;
 }
 
-.skill-cube:hover .skill-icon { transform: translateY(-4px); }
+.skill-cube:hover .skill-icon { transform: translateY(-4px); color: var(--orange); }
+.skill-cube:hover .skill-svg  { color: var(--orange); }
 
 .skill-cube span {
   font-size: 0.56rem;
