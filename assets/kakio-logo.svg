@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0a0a0a"/>
+
+  <!-- Orange splat blob — hand-crafted bezier, no filter -->
+  <path fill="#d97532" d="
+    M 200,65
+    C 220,62 252,75 270,95
+    C 278,85 295,72 306,82
+    C 295,96 282,115 285,135
+    C 298,148 320,162 318,185
+    C 315,205 300,215 288,220
+    C 298,238 310,258 302,272
+    C 290,282 270,280 252,270
+    C 245,280 228,298 200,296
+    C 172,298 155,280 148,270
+    C 130,280 110,282 98,272
+    C 90,258 102,238 112,220
+    C 100,215 85,205 82,185
+    C 80,162 102,148 115,135
+    C 118,115 105,96 94,82
+    C 105,72 122,85 130,95
+    C 148,75 178,62 200,65
+    Z
+  "/>
+
+  <!-- Splash accents (top-right) -->
+  <ellipse cx="312" cy="78"  rx="15" ry="9"  fill="#d97532" transform="rotate(-30,312,78)"/>
+  <ellipse cx="335" cy="105" rx="10" ry="6"  fill="#d97532" transform="rotate(-15,335,105)"/>
+  <ellipse cx="318" cy="118" rx="7"  ry="4"  fill="#d97532" transform="rotate(-20,318,118)"/>
+
+  <!-- Bottom drips -->
+  <ellipse cx="185" cy="306" rx="8"  ry="13" fill="#d97532"/>
+  <ellipse cx="214" cy="303" rx="6"  ry="10" fill="#d97532"/>
+  <ellipse cx="200" cy="314" rx="4"  ry="7"  fill="#d97532"/>
+
+  <!-- HAN text -->
+  <text
+    x="200"
+    y="198"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Fredoka, 'Arial Rounded MT Bold', Arial Black, sans-serif"
+    font-size="115"
+    font-weight="700"
+    fill="#1a0e02"
+    letter-spacing="-3"
+  >HAN</text>
+</svg>

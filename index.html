@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Han Zhang — Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="fire-sparkle-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo" data-section="home" id="nav-logo">Han Zhang</div>
+    <ul class="nav-links">
+      <li><span class="nav-link" data-section="home">Home</span></li>
+      <li><span class="nav-link" data-section="projects">Projects</span></li>
+      <li><span class="nav-link" data-section="about">About Me</span></li>
+    </ul>
+  </nav>
+
+  <!-- Campfire Widget -->
+  <div id="campfire-widget">
+    <span class="campfire-label">Vibe</span>
+    <div id="campfire-icon" class="fire-level-0">
+      <div class="cf-flames">
+        <div class="cf-flame cf-flame-4"></div>
+        <div class="cf-flame cf-flame-2"></div>
+        <div class="cf-flame cf-flame-3"></div>
+        <div class="cf-flame cf-flame-1"></div>
+      </div>
+      <div class="cf-embers"></div>
+      <div class="cf-logs">
+        <div class="cf-log cf-log-1"></div>
+        <div class="cf-log cf-log-2"></div>
+      </div>
+    </div>
+    <div class="fire-bar"><div id="fire-bar-fill"></div></div>
+    <span class="fire-count"><span id="fire-click-count">0</span> clicks</span>
+  </div>
+
+  <!-- SECTION: Home -->
+  <section id="section-home" class="page-section active">
+
+    <!-- Hero -->
+    <div class="hero-section">
+      <img class="hero-logo-img" src="assets/han-logo.png" alt="Han Zhang">
+    </div>
+
+    <!-- What I Make -->
+    <div class="home-categories">
+      <h2 class="section-title">What I Make</h2>
+      <div class="category-grid">
+        <div class="category-card" data-nav="projects" data-filter="games">
+          <div class="category-icon">🎮</div>
+          <h3>Games</h3>
+          <p>PC and XR titles, from game jams to semester projects, all with tight mechanics and a focus on feel.</p>
+        </div>
+        <div class="category-card" data-nav="projects" data-filter="levelDesign">
+          <div class="category-icon">🗺️</div>
+          <h3>Level Design</h3>
+          <p>Spaces that guide players naturally and make combat, exploration, and flow feel effortless.</p>
+        </div>
+        <div class="category-card" data-nav="projects" data-filter="applications">
+          <div class="category-icon">⚙️</div>
+          <h3>Applications</h3>
+          <p>Tools, utilities, and tech demos built alongside game development work.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      &copy; 2025 Han Zhang
+    </footer>
+  </section>
+
+  <!-- SECTION: Projects -->
+  <section id="section-projects" class="page-section">
+
+    <div class="projects-header">
+      <h1>Projects</h1>
+      <p class="projects-sub">Click any project to see the full breakdown.</p>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-strip">
+      <div class="skill-cube">
+        <div class="skill-icon s-unity">🎮</div>
+        <span>Unity</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-unreal">🔷</div>
+        <span>Unreal</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-csharp">💻</div>
+        <span>C#</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-cpp">⚙️</div>
+        <span>C++</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-vr">🥽</div>
+        <span>VR / XR</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-level">🗺️</div>
+        <span>Level Design</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-design">🎲</div>
+        <span>Game Design</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-shader">✨</div>
+        <span>Shader Graph</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-vfx">💥</div>
+        <span>VFX</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-proc">🔄</div>
+        <span>Procedural Gen</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-ui">📱</div>
+        <span>UI / UX</span>
+      </div>
+      <div class="skill-cube">
+        <div class="skill-icon s-physics">⚡</div>
+        <span>Physics Sim</span>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-bar">
+      <button class="filter-tab active" data-filter="">All</button>
+      <button class="filter-tab" data-filter="games">Games</button>
+      <button class="filter-tab" data-filter="levelDesign">Level Design</button>
+      <button class="filter-tab" data-filter="applications">Applications</button>
+    </div>
+
+    <div id="projects-grid"></div>
+
+  </section>
+
+  <!-- SECTION: Project Detail -->
+  <section id="section-project-detail" class="page-section"></section>
+
+  <!-- SECTION: About Me -->
+  <section id="section-about" class="page-section">
+
+    <div class="about-header">
+      <h1>About Me</h1>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card" onclick="window.open('assets/resume.pdf','_blank')">
+        <div class="about-card-icon">📄</div>
+        <h3>Resume</h3>
+        <p>Full resume with education, skills, experience, and shipped projects.</p>
+      </div>
+      <div class="about-card" onclick="window.open('https://linkedin.com/in/yourprofile','_blank')">
+        <div class="about-card-icon">💼</div>
+        <h3>LinkedIn</h3>
+        <p>Open to game dev roles, internships, and collaborations.</p>
+      </div>
+      <div class="about-card" onclick="window.location.href='mailto:your@email.com'">
+        <div class="about-card-icon">✉️</div>
+        <h3>Contact</h3>
+        <p>Got a project or opportunity? Send me an email and let's talk.</p>
+      </div>
+      <div class="about-card" onclick="window.open('https://github.com/yourusername','_blank')">
+        <div class="about-card-icon">🔗</div>
+        <h3>GitHub</h3>
+        <p>Source code, experiments, and tools from personal and academic projects.</p>
+      </div>
+    </div>
+
+    <div class="about-bio">
+      <h2>Hey, I'm Han Zhang</h2>
+      <p>
+        I make games. I've been building things in Unity and Unreal for a while now, mostly on PC and XR, and I genuinely care about the part where it actually feels good to play. Not just works, but feels right.
+      </p>
+      <br>
+      <p>
+        I've done solo game jams, team projects, levels, VFX, UI, systems design, a bit of everything really. Outside of making games I spend a lot of time playing them and figuring out why some games just click and others don't.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/campfire.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.getElementById("nav-logo").addEventListener("click", (e) => {
+      e.stopPropagation();
+      App.navigate("home");
+    });
+  </script>
+</body>
+</html>
