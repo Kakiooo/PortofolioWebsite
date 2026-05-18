@@ -44,7 +44,7 @@
   </div>
 
   <!-- SECTION: Home -->
-  <section id="section-home" class="page-section active">
+  <section id="section-home" class="page-section">
 
     <!-- Hero -->
     <div class="hero-section">
@@ -73,9 +73,6 @@
       </div>
     </div>
 
-    <footer class="site-footer">
-      &copy; 2025 Han Zhang
-    </footer>
   </section>
 
   <!-- SECTION: Projects -->
@@ -150,9 +147,6 @@
 
   </section>
 
-  <!-- SECTION: Project Detail -->
-  <section id="section-project-detail" class="page-section"></section>
-
   <!-- SECTION: About Me -->
   <section id="section-about" class="page-section">
 
@@ -196,16 +190,18 @@
 
   </section>
 
+  <!-- Project Detail Overlay -->
+  <div id="project-detail-overlay">
+    <div id="section-project-detail"></div>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2026 Han Zhang
+  </footer>
+
   <!-- Scripts -->
   <script src="js/data.js"></script>
   <script src="js/campfire.js"></script>
   <script src="js/main.js"></script>
-
-  <script>
-    document.getElementById("nav-logo").addEventListener("click", (e) => {
-      e.stopPropagation();
-      App.navigate("home");
-    });
-  </script>
 </body>
 </html>

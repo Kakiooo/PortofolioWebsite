@@ -1,24 +1,43 @@
-// ─── Router / SPA Logic ────────────────────────────────────────────────────
 const App = (() => {
-  let currentSection = "home";
 
-  // ── Navigation ──────────────────────────────────────────────────────────
-  function navigate(section, extra) {
-    currentSection = section;
-    document.querySelectorAll(".page-section").forEach(s => s.classList.remove("active"));
-    const target = document.getElementById(`section-${section}`);
-    if (target) target.classList.add("active");
+  // ── Scroll to section ────────────────────────────────────────────────────
+  function scrollToSection(sectionId) {
+    const target = document.getElementById(`section-${sectionId}`);
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+    history.pushState({ section: sectionId }, "", `#${sectionId}`);
+  }
 
-    document.querySelectorAll(".nav-link").forEach(l => {
-      l.classList.toggle("active", l.dataset.section === section);
+  // ── Scroll spy ───────────────────────────────────────────────────────────
+  function initScrollSpy() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id.replace("section-", "");
+          document.querySelectorAll(".nav-link").forEach(l => {
+            l.classList.toggle("active", l.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -60% 0px" });
+
+    ["home", "projects", "about"].forEach(id => {
+      const el = document.getElementById(`section-${id}`);
+      if (el) observer.observe(el);
     });
+  }
 
-    if (section === "project-detail" && extra) {
-      renderProjectDetail(extra);
-    }
+  // ── Project overlay ──────────────────────────────────────────────────────
+  function openProjectDetail(id) {
+    renderProjectDetail(id);
+    document.getElementById("project-detail-overlay").classList.add("overlay-open");
+    document.body.style.overflow = "hidden";
+    history.pushState({ overlay: id }, "", `#project/${id}`);
+  }
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    history.pushState({ section, extra }, "", `#${section}${extra ? "/" + extra : ""}`);
+  function closeProjectDetail() {
+    document.getElementById("project-detail-overlay").classList.remove("overlay-open");
+    document.body.style.overflow = "";
+    history.back();
   }
 
   // ── Project Grid ─────────────────────────────────────────────────────────
@@ -27,7 +46,7 @@ const App = (() => {
     if (!container) return;
 
     let items = [];
-    if (!filter || filter === "games") items = items.concat(PROJECTS.games.map(p => ({ ...p, category: "games" })));
+    if (!filter || filter === "games")       items = items.concat(PROJECTS.games.map(p => ({ ...p, category: "games" })));
     if (!filter || filter === "levelDesign") items = items.concat(PROJECTS.levelDesign.map(p => ({ ...p, category: "levelDesign" })));
     if (!filter || filter === "applications") items = items.concat(PROJECTS.applications.map(p => ({ ...p, category: "applications" })));
 
@@ -52,11 +71,10 @@ const App = (() => {
       </div>
     `).join("");
 
-    // Bind click events (these count as project navigation, not campfire clicks)
     container.querySelectorAll(".project-card").forEach(card => {
       card.addEventListener("click", (e) => {
         e.stopPropagation();
-        navigate("project-detail", card.dataset.id);
+        openProjectDetail(card.dataset.id);
       });
     });
   }
@@ -119,11 +137,13 @@ const App = (() => {
 
     document.getElementById("btn-back").addEventListener("click", (e) => {
       e.stopPropagation();
-      navigate("projects");
+      closeProjectDetail();
     });
+
+    document.getElementById("project-detail-overlay").scrollTop = 0;
   }
 
-  // ── Skills Filter Tabs ────────────────────────────────────────────────────
+  // ── Filter tabs ───────────────────────────────────────────────────────────
   function initProjectFilter() {
     const tabs = document.querySelectorAll(".filter-tab");
     tabs.forEach(tab => {
@@ -136,11 +156,9 @@ const App = (() => {
     });
   }
 
-  // ── Campfire click tracking ────────────────────────────────────────────────
+  // ── Campfire click tracking ───────────────────────────────────────────────
   function initCampfireTracking() {
-    document.addEventListener("click", () => {
-      CAMPFIRE.increment();
-    });
+    document.addEventListener("click", () => CAMPFIRE.increment());
   }
 
   // ── Nav links ─────────────────────────────────────────────────────────────
@@ -149,55 +167,46 @@ const App = (() => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const section = link.dataset.section;
-        navigate(section);
-        if (section === "projects") renderProjectGrid();
+        scrollToSection(link.dataset.section);
       });
     });
 
-    document.querySelectorAll(".hero-cta").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        navigate("projects");
-        renderProjectGrid();
-      });
+    document.getElementById("nav-logo").addEventListener("click", (e) => {
+      e.stopPropagation();
+      scrollToSection("home");
     });
   }
 
-  // ── Category section buttons ──────────────────────────────────────────────
+  // ── Category buttons ──────────────────────────────────────────────────────
   function initCategoryButtons() {
     document.querySelectorAll("[data-nav]").forEach(el => {
       el.addEventListener("click", (e) => {
         e.stopPropagation();
         const target = el.dataset.nav;
         if (target === "projects") {
-          navigate("projects");
-          renderProjectGrid(el.dataset.filter);
-          // Activate matching tab
+          scrollToSection("projects");
+          renderProjectGrid(el.dataset.filter || null);
           if (el.dataset.filter) {
             document.querySelectorAll(".filter-tab").forEach(t => {
               t.classList.toggle("active", t.dataset.filter === el.dataset.filter);
             });
           }
         } else {
-          navigate(target);
+          scrollToSection(target);
         }
       });
     });
   }
 
-  // ── Hash routing ────────────────────────────────────────────────────────
+  // ── Hash routing ─────────────────────────────────────────────────────────
   function handleHash() {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
-    const [section, id] = hash.split("/");
-    if (section === "projects") {
-      navigate("projects");
-      renderProjectGrid();
-    } else if (section === "project-detail" && id) {
-      navigate("project-detail", id);
-    } else if (section) {
-      navigate(section);
+    if (hash.startsWith("project/")) {
+      openProjectDetail(hash.replace("project/", ""));
+    } else {
+      const el = document.getElementById(`section-${hash}`);
+      if (el) el.scrollIntoView();
     }
   }
 
@@ -205,17 +214,24 @@ const App = (() => {
   function init() {
     CAMPFIRE.init();
     initNav();
+    initScrollSpy();
     initProjectFilter();
     initCategoryButtons();
     initCampfireTracking();
     renderProjectGrid();
     handleHash();
     window.addEventListener("popstate", (e) => {
-      if (e.state) navigate(e.state.section, e.state.extra);
+      const overlay = document.getElementById("project-detail-overlay");
+      if (e.state?.overlay) {
+        openProjectDetail(e.state.overlay);
+      } else if (overlay.classList.contains("overlay-open")) {
+        overlay.classList.remove("overlay-open");
+        document.body.style.overflow = "";
+      }
     });
   }
 
-  return { init, navigate };
+  return { init };
 })();
 
 document.addEventListener("DOMContentLoaded", App.init);

@@ -63,8 +63,33 @@ h3 { font-size: 1.1rem; }
 .mono { font-family: var(--font-mono); }
 
 /* ── Page Layout ────────────────────────────────────────────────────────── */
-.page-section { display: none; }
-.page-section.active { display: block; }
+.page-section { display: block; }
+
+/* ── Project Detail Overlay ─────────────────────────────────────────────── */
+#project-detail-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: var(--page-bg);
+  overflow-y: auto;
+}
+
+#project-detail-overlay.overlay-open {
+  display: block;
+  animation: overlayIn 0.22s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#section-project-detail {
+  padding: 7rem 2rem 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
 /* ── Navbar ─────────────────────────────────────────────────────────────── */
 .navbar {
@@ -612,11 +637,6 @@ h3 { font-size: 1.1rem; }
 }
 
 /* ── Project Detail ─────────────────────────────────────────────────────── */
-#section-project-detail {
-  padding: 7rem 2rem 5rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
 
 .detail-back { margin-bottom: 2rem; }
 
