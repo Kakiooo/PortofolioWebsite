@@ -51,30 +51,33 @@ const App = (() => {
     if (!filter || filter === "applications") items = items.concat(PROJECTS.applications.map(p => ({ ...p, category: "applications" })));
 
     container.innerHTML = items.map(p => `
-      <div class="project-card" data-id="${p.id}" data-category="${p.category}">
-        <div class="card-thumb">
-          <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
-          <div class="thumb-placeholder"><span>${p.title[0]}</span></div>
-        </div>
-        <div class="card-body">
-          <div class="card-genre">${p.genre}</div>
-          <h3 class="card-title">${p.title}</h3>
-          <p class="card-summary">${p.summary}</p>
-          <div class="card-skills">
-            ${p.skills.map(s => `<span class="skill-tag">${s}</span>`).join("")}
+      <div class="project-card-wrapper" data-id="${p.id}" data-category="${p.category}">
+        <div class="project-card">
+          <div class="card-thumb">
+            <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
+            <div class="thumb-placeholder"><span>${p.title[0]}</span></div>
           </div>
-          <div class="card-footer">
-            <span class="card-role">${p.roles[0]}</span>
-            ${p.links?.browser ? `<span class="play-badge">Play in browser</span>` : ""}
+          <div class="card-body">
+            <div class="card-genre">${p.genre}</div>
+            <h3 class="card-title">${p.title}</h3>
+            <p class="card-summary">${p.summary}</p>
+            <div class="card-skills">
+              ${p.skills.map(s => `<span class="skill-tag">${s}</span>`).join("")}
+            </div>
+            <div class="card-footer">
+              <span class="card-role">${p.roles[0]}</span>
+              ${p.links?.browser ? `<span class="play-badge">Play in browser</span>` : ""}
+            </div>
           </div>
         </div>
+        <div class="card-tab"></div>
       </div>
     `).join("");
 
-    container.querySelectorAll(".project-card").forEach(card => {
-      card.addEventListener("click", (e) => {
+    container.querySelectorAll(".project-card-wrapper").forEach(wrapper => {
+      wrapper.addEventListener("click", (e) => {
         e.stopPropagation();
-        openProjectDetail(card.dataset.id);
+        openProjectDetail(wrapper.dataset.id);
       });
     });
   }
@@ -163,16 +166,34 @@ const App = (() => {
 
   // ── Nav links ─────────────────────────────────────────────────────────────
   function initNav() {
+    const navbar = document.querySelector(".navbar");
+    const hamburger = document.getElementById("nav-hamburger");
+
+    if (hamburger) {
+      hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navbar.classList.toggle("nav-open");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (navbar.classList.contains("nav-open") && !navbar.contains(e.target)) {
+          navbar.classList.remove("nav-open");
+        }
+      });
+    }
+
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
+        navbar.classList.remove("nav-open");
         scrollToSection(link.dataset.section);
       });
     });
 
     document.getElementById("nav-logo").addEventListener("click", (e) => {
       e.stopPropagation();
+      navbar.classList.remove("nav-open");
       scrollToSection("home");
     });
   }
