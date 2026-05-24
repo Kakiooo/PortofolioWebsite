@@ -69,10 +69,6 @@ const App = (() => {
             </div>
           </div>
         </div>
-        ${p.links?.browser
-          ? `<a class="card-tab card-tab-play" href="${p.links.browser}" target="_blank"><span>▶ Play</span></a>`
-          : `<div class="card-tab"></div>`
-        }
       </div>
     `).join("");
 
@@ -83,9 +79,6 @@ const App = (() => {
       });
     });
 
-    container.querySelectorAll(".card-tab-play").forEach(tab => {
-      tab.addEventListener("click", (e) => e.stopPropagation());
-    });
   }
 
   // ── Project Detail ───────────────────────────────────────────────────────
