@@ -3,7 +3,7 @@ const PROJECTS = {
     {
       id: "what-a-fridge",
       title: "What The Fridge?!",
-      thumbnail: "assets/ScreenShots/WhataFridge5.png",
+      thumbnail: "assets/screenshots/WhataFridge5.png",
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],
@@ -11,12 +11,12 @@ const PROJECTS = {
       skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoSystem"],
       links: {},
       screenshots: [
-        "assets/ScreenShots/WhataFridge5.png",
-        "assets/ScreenShots/WhataFridge1.png",
-        "assets/ScreenShots/WhataFridge4.png",
-        "assets/ScreenShots/WhataFridge3.png",
-        "assets/ScreenShots/WhataFridge2.png",
-        "assets/ScreenShots/WhataFridge0.png"
+        "assets/screenshots/WhataFridge5.png",
+        "assets/screenshots/WhataFridge1.png",
+        "assets/screenshots/WhataFridge4.png",
+        "assets/screenshots/WhataFridge3.png",
+        "assets/screenshots/WhataFridge2.png",
+        "assets/screenshots/WhataFridge0.png"
       ],
       detail: {
         overview: "A third-person stealth game where players must blend in among NPCs and photograph scandalous moments between celebrities without getting caught. Timing, positioning, and awareness are everything.",
@@ -43,9 +43,9 @@ const PROJECTS = {
     {
       id: "squishy-squid",
       title: "Squishy Squid",
-      thumbnail: "assets/ScreenShots/SquishySquid0.png",
+      thumbnail: "assets/screenshots/SquishySquid0.png",
       screenshots: [
-        "assets/ScreenShots/SquishySquid0.png"
+        "assets/screenshots/SquishySquid0.png"
       ],
       summary: "A fully solo-developed game — a hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
       genre: "Action",
