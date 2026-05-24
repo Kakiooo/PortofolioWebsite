@@ -2,14 +2,22 @@ const PROJECTS = {
   games: [
     {
       id: "what-a-fridge",
-      title: "What A Fridge",
-      thumbnail: "assets/thumbnails/what-a-fridge.jpg",
+      title: "What The Fridge?!",
+      thumbnail: "assets/ScreenShots/WhataFridge5.png",
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],
       roles: ["Lead Programmer", "Game Designer"],
       skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoSystem"],
       links: {},
+      screenshots: [
+        "assets/ScreenShots/WhataFridge5.png",
+        "assets/ScreenShots/WhataFridge1.png",
+        "assets/ScreenShots/WhataFridge4.png",
+        "assets/ScreenShots/WhataFridge3.png",
+        "assets/ScreenShots/WhataFridge2.png",
+        "assets/ScreenShots/WhataFridge0.png"
+      ],
       detail: {
         overview: "A third-person stealth game where players must blend in among NPCs and photograph scandalous moments between celebrities without getting caught. Timing, positioning, and awareness are everything.",
         contribution: "Fully developed the entire game system — enemy AI logic and patrol behaviour, player controls, and a photo analysis system that evaluates shot composition and subject detection.",
@@ -35,7 +43,10 @@ const PROJECTS = {
     {
       id: "squishy-squid",
       title: "Squishy Squid",
-      thumbnail: "assets/thumbnails/squishy-squid.jpg",
+      thumbnail: "assets/ScreenShots/SquishySquid0.png",
+      screenshots: [
+        "assets/ScreenShots/SquishySquid0.png"
+      ],
       summary: "A fully solo-developed game — a hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
       genre: "Action",
       platform: ["PC"],

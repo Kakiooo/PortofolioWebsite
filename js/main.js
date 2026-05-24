@@ -133,6 +133,18 @@ const App = (() => {
             ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
           </div>
         </div>
+        ${p.screenshots?.length ? `
+        <div class="detail-block">
+          <h2>Screenshots</h2>
+          <div class="screenshot-grid">
+            ${p.screenshots.map((src, i) => `
+              <button class="screenshot-thumb" data-index="${i}" aria-label="View screenshot ${i + 1}">
+                <img src="${src}" alt="Screenshot ${i + 1}">
+              </button>
+            `).join("")}
+          </div>
+        </div>
+        ` : ""}
       </div>
     `;
 
@@ -140,6 +152,16 @@ const App = (() => {
       e.stopPropagation();
       closeProjectDetail();
     });
+
+    // Screenshot gallery click handlers
+    if (p.screenshots?.length) {
+      section.querySelectorAll(".screenshot-thumb").forEach(thumb => {
+        thumb.addEventListener("click", (e) => {
+          e.stopPropagation();
+          LIGHTBOX.open(p.screenshots, parseInt(thumb.dataset.index));
+        });
+      });
+    }
 
     document.getElementById("project-detail-overlay").scrollTop = 0;
   }
@@ -254,6 +276,48 @@ const App = (() => {
 })();
 
 document.addEventListener("DOMContentLoaded", App.init);
+
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+const LIGHTBOX = (() => {
+  let images = [];
+  let index = 0;
+
+  function update() {
+    document.getElementById("lightbox-img").src = images[index];
+    document.getElementById("lightbox-prev").style.visibility = images.length > 1 ? "visible" : "hidden";
+    document.getElementById("lightbox-next").style.visibility = images.length > 1 ? "visible" : "hidden";
+  }
+
+  function open(imgs, i) {
+    images = imgs;
+    index = i;
+    update();
+    document.getElementById("lightbox").classList.add("lightbox-open");
+  }
+
+  function close() {
+    document.getElementById("lightbox").classList.remove("lightbox-open");
+  }
+
+  function prev() { index = (index - 1 + images.length) % images.length; update(); }
+  function next() { index = (index + 1) % images.length; update(); }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("lightbox-close").addEventListener("click", (e) => { e.stopPropagation(); close(); });
+    document.getElementById("lightbox-prev").addEventListener("click",  (e) => { e.stopPropagation(); prev(); });
+    document.getElementById("lightbox-next").addEventListener("click",  (e) => { e.stopPropagation(); next(); });
+    document.getElementById("lightbox").addEventListener("click", close);
+
+    document.addEventListener("keydown", (e) => {
+      if (!document.getElementById("lightbox").classList.contains("lightbox-open")) return;
+      if (e.key === "Escape")     close();
+      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowRight") next();
+    });
+  });
+
+  return { open, close };
+})();
 
 // ── Toast ─────────────────────────────────────────────────────────────────────
 function showToast(msg) {
