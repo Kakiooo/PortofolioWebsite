@@ -136,7 +136,10 @@ const App = (() => {
           <div class="role-chips">
             ${p.roles.map(r => `<span class="role-chip">${r}</span>`).join("")}
           </div>
-          <p>${p.detail.contribution}</p>
+          ${Array.isArray(p.detail.contribution)
+            ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
+            : `<p>${p.detail.contribution}</p>`
+          }
         </div>
         <div class="detail-block">
           <h2>What I Built</h2>

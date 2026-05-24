@@ -909,6 +909,34 @@ h3 { font-size: 1.1rem; }
   letter-spacing: 0.05em;
 }
 
+.contribution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.contribution-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--card-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.contribution-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
 .detail-skills {
   display: flex;
   flex-wrap: wrap;
