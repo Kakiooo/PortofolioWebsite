@@ -98,7 +98,6 @@ const App = (() => {
     section.innerHTML = `
       <div class="detail-back">
         <button class="btn-back" id="btn-back">← Back</button>
-        ${p.links?.browser ? `<a href="${p.links.browser}" class="btn-play" target="_blank">▶ Play in Browser</a>` : ""}
       </div>
       <div class="detail-hero">
         <div class="detail-thumb">
