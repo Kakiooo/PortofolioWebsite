@@ -19,7 +19,7 @@
   --muted:       #8a7060;
   --font-head:   'Stack Sans Headline', 'Impact', sans-serif;
   --font-mono:   'Anonymous Pro', 'Courier New', monospace;
-  --font-body:   'Elms Sans', 'Segoe UI', sans-serif;
+  --font-body:   'Nunito', 'Segoe UI', sans-serif;
   --radius:      8px;
   --transition:  0.25s ease;
 }
@@ -665,7 +665,7 @@ h3 { font-size: 1.1rem; }
 
 .card-summary {
   font-size: 0.8rem;
-  color: var(--card-muted);
+  color: var(--card-text);
   line-height: 1.5;
   flex: 1;
   display: -webkit-box;
