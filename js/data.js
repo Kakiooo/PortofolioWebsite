@@ -46,7 +46,10 @@ const PROJECTS = {
       title: "Squishy Squid",
       thumbnail: "assets/screenshots/SquishySquid0.png",
       screenshots: [
-        "assets/screenshots/SquishySquid0.png"
+        "assets/screenshots/SquishySquid2.png",
+        "assets/screenshots/SquishySquid3.png",
+        "assets/screenshots/SquishySquid4.png",
+        "assets/screenshots/SquishySquid1.png"
       ],
       summary: "A fully solo-developed game — a hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
       genre: "Action",
