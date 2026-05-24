@@ -4,6 +4,7 @@ const PROJECTS = {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
+      thumbnailContain: true,
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],

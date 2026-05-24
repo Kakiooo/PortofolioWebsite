@@ -53,7 +53,7 @@ const App = (() => {
     container.innerHTML = items.map(p => `
       <div class="project-card-wrapper" data-id="${p.id}" data-category="${p.category}">
         <div class="project-card">
-          <div class="card-thumb">
+          <div class="card-thumb${p.thumbnailContain ? " thumb-contain" : ""}">
             <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
             <div class="thumb-placeholder"><span>${p.title[0]}</span></div>
           </div>
