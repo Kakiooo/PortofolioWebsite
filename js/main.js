@@ -277,14 +277,9 @@ function showToast(msg) {
   toast._t = setTimeout(() => toast.classList.remove("toast-show"), 2200);
 }
 
-// ── Resume download ───────────────────────────────────────────────────────────
+// ── Resume preview ────────────────────────────────────────────────────────────
 function downloadResume() {
-  const a = document.createElement("a");
-  a.href = "assets/resume.pdf";
-  a.download = "Han_Zhang_Resume.pdf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  window.open("assets/resume.pdf", "_blank", "noopener,noreferrer");
 }
 
 // ── Copy email ────────────────────────────────────────────────────────────────
