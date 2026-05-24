@@ -1,6 +1,22 @@
 const PROJECTS = {
   games: [
     {
+      id: "crossworld-chronicles",
+      title: "Crossworld Chronicles",
+      thumbnail: "",
+      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time netcode.",
+      genre: "Co-op VR",
+      platform: ["PC VR"],
+      roles: ["Lead Developer"],
+      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Netcode", "#ScriptableObjects", "#BackendDev"],
+      links: {},
+      detail: {
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game built as a sponsored client project with Coal Car Studio Ltd. The team delivered a vertical slice in Unity with real-time multiplayer and two player roles: the Strategist places and manages defensive turrets from an overhead view, while the Explorer fights through the level in first-person VR. Both players share a mana pool that forces real cooperation rather than just co-existing in the same space.",
+        contribution: "As lead developer I built most of the core systems: dual control setups for both player roles, a full weapons and combat system, turret placement and enemy AI, a shared mana mechanic, health and pickup systems, and a Scriptable Object architecture to keep the data side clean and scalable. I also handled backend work using the client's own tech stack, which was a new challenge on top of learning VR at the same time. This was also my first real client engagement, and navigating feedback, managing expectations and translating their vision into working features turned out to be just as important as the code.",
+        learnings: "Unity, C#, XR Toolkit, VR development, Netcode for GameObjects, real-time multiplayer, backend integration, Scriptable Objects, client communication."
+      }
+    },
+    {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
@@ -21,7 +37,7 @@ const PROJECTS = {
       ],
       detail: {
         overview: "A third-person stealth game where players must blend in among NPCs and photograph scandalous moments between celebrities without getting caught. Timing, positioning, and awareness are everything.",
-        contribution: "Fully developed the entire game system — enemy AI logic and patrol behaviour, player controls, and a photo analysis system that evaluates shot composition and subject detection.",
+        contribution: "Fully developed the entire game system: enemy AI logic and patrol behaviour, player controls, and a photo analysis system that evaluates shot composition and subject detection.",
         learnings: "Unity, C#, NavMesh AI, Finite State Machines, Raycast-based detection systems, third-person camera rigs."
       }
     },
@@ -43,7 +59,7 @@ const PROJECTS = {
       links: {},
       detail: {
         overview: "An action game built around chaining rune spells together for big kinetic combos. You're pitted against hordes of enemies and your job is to find the combo that feels the most satisfying to pull off.",
-        contribution: "Developed the enemy AI system — each enemy type has its own combat abilities and skill sets that adapt to the player's behaviour. Also built and owned the full VFX pipeline, from particle systems to shader-driven effects.",
+        contribution: "Developed the enemy AI system, where each enemy type has its own combat abilities and skill sets that adapt to the player's behaviour. Also built and owned the full VFX pipeline, from particle systems to shader-driven effects.",
         learnings: "Unity, C#, Behaviour Trees, ShaderGraph, VFX Graph, Particle Systems, Combat System Design."
       }
     },
@@ -57,14 +73,14 @@ const PROJECTS = {
         "assets/screenshots/SquishySquid4.png",
         "assets/screenshots/SquishySquid1.png"
       ],
-      summary: "A fully solo-developed game — a hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
+      summary: "A fully solo-developed game. A hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
       genre: "Action",
       platform: ["PC"],
       roles: ["Solo Developer"],
       skills: ["#Unity", "#C#", "#ProceduralAnimation", "#SoundDesign", "#Physics"],
       links: {},
       detail: {
-        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Every element — art, sound effects, animations, and game logic — was fully developed by me from scratch.",
+        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Art, sound effects, animations and game logic were all built from scratch.",
         contribution: "Built the entire game solo: gameplay systems, procedural tentacle animation, custom physics-based movement, original sound design, and all visual art assets.",
         learnings: "Unity, C#, Procedural Animation, Physics Simulation, Audio Design, 2D Art, Custom Shaders."
       }
