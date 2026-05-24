@@ -5,7 +5,7 @@ const PROJECTS = {
       title: "Crossworld Chronicles",
       thumbnail: "assets/screenshots/CrossworldChronicles.jpg",
       thumbnailContainDark: true,
-      video: "assets/Video/CrossworldChronicleTrailer.mp4",
+      video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
         "assets/screenshots/CrossworldChronicles4.jpg",
         "assets/screenshots/CrossworldChronicles5.jpg",
@@ -19,7 +19,7 @@ const PROJECTS = {
       skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Netcode", "#ScriptableObjects", "#BackendDev"],
       links: {},
       detail: {
-        overview: "Crossworld Chronicles is a cooperative multiplayer VR game built as a sponsored client project with Coal Car Studio Ltd. The team delivered a vertical slice in Unity with real-time multiplayer and two player roles: the Strategist places and manages defensive turrets from an overhead view, while the Explorer fights through the level in first-person VR. Both players share a mana pool that forces real cooperation rather than just co-existing in the same space.",
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice with real-time netcode, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other.",
         contribution: [
           "Dual control systems for both Strategist and Explorer roles",
           "Full weapons and combat system",
