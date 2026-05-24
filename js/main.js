@@ -119,6 +119,18 @@ const App = (() => {
           <h2>Overview</h2>
           <p>${p.detail.overview}</p>
         </div>
+        ${p.screenshots?.length ? `
+        <div class="detail-block">
+          <h2>Screenshots</h2>
+          <div class="screenshot-grid">
+            ${p.screenshots.map((src, i) => `
+              <button class="screenshot-thumb" data-index="${i}" aria-label="View screenshot ${i + 1}">
+                <img src="${src}" alt="Screenshot ${i + 1}">
+              </button>
+            `).join("")}
+          </div>
+        </div>
+        ` : ""}
         <div class="detail-block">
           <h2>My Contribution</h2>
           <div class="role-chips">
@@ -133,18 +145,6 @@ const App = (() => {
             ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
           </div>
         </div>
-        ${p.screenshots?.length ? `
-        <div class="detail-block">
-          <h2>Screenshots</h2>
-          <div class="screenshot-grid">
-            ${p.screenshots.map((src, i) => `
-              <button class="screenshot-thumb" data-index="${i}" aria-label="View screenshot ${i + 1}">
-                <img src="${src}" alt="Screenshot ${i + 1}">
-              </button>
-            `).join("")}
-          </div>
-        </div>
-        ` : ""}
       </div>
     `;
 
