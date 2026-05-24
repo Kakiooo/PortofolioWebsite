@@ -135,7 +135,7 @@ const App = (() => {
           <p>${p.detail.contribution}</p>
         </div>
         <div class="detail-block">
-          <h2>What I Learned</h2>
+          <h2>What I Built</h2>
           <p>${p.detail.learnings}</p>
           <div class="detail-skills">
             ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}

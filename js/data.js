@@ -4,16 +4,16 @@ const PROJECTS = {
       id: "what-a-fridge",
       title: "What A Fridge",
       thumbnail: "assets/thumbnails/what-a-fridge.jpg",
-      summary: "A strategy game where you play as a raccoon trying to manage a completely chaotic fridge ecosystem.",
-      genre: "Strategy",
+      summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
+      genre: "Stealth",
       platform: ["PC"],
       roles: ["Lead Programmer", "Game Designer"],
-      skills: ["#Unity", "#C#", "#GameDesign", "#AI", "#SystemsDesign"],
+      skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoSystem"],
       links: {},
       detail: {
-        overview: "A top-down strategy game where you're a raccoon stuck inside a fridge, managing a chaotic little ecosystem. Resources go rogue, food entities have their own agendas, and things spiral fast.",
-        contribution: "Handled the core game loop programming, built the AI system for the food entities, and put together the inventory management.",
-        learnings: "Got really comfortable with finite state machines for enemy AI. Also learned a lot about how fast things can break down on a game jam timeline and how to iterate quickly under pressure."
+        overview: "A third-person stealth game where players must blend in among NPCs and photograph scandalous moments between celebrities without getting caught. Timing, positioning, and awareness are everything.",
+        contribution: "Fully developed the entire game system — enemy AI logic and patrol behaviour, player controls, and a photo analysis system that evaluates shot composition and subject detection.",
+        learnings: "Unity, C#, NavMesh AI, Finite State Machines, Raycast-based detection systems, third-person camera rigs."
       }
     },
     {
@@ -28,24 +28,24 @@ const PROJECTS = {
       links: {},
       detail: {
         overview: "An action game built around chaining rune spells together for big kinetic combos. You're pitted against hordes of enemies and your job is to find the combo that feels the most satisfying to pull off.",
-        contribution: "Built the spell chaining system from scratch, set up the particle VFX pipeline, and spent a lot of time iterating on combat feel through playtesting.",
-        learnings: "Learned a lot about shader programming and how much work goes into making combat feel punchy and satisfying. Feedback loops matter way more than I expected."
+        contribution: "Developed the enemy AI system — each enemy type has its own combat abilities and skill sets that adapt to the player's behaviour. Also built and owned the full VFX pipeline, from particle systems to shader-driven effects.",
+        learnings: "Unity, C#, Behaviour Trees, ShaderGraph, VFX Graph, Particle Systems, Combat System Design."
       }
     },
     {
       id: "squishy-squid",
       title: "Squishy Squid",
       thumbnail: "assets/thumbnails/squishy-squid.jpg",
-      summary: "Control a hungry squid navigating underwater hazards to satisfy its endless appetite.",
+      summary: "A fully solo-developed game — a hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
       genre: "Action",
       platform: ["PC"],
       roles: ["Solo Developer"],
-      skills: ["#Unity", "#C#", "#ProceduralAnimation", "#GameJam", "#Physics"],
+      skills: ["#Unity", "#C#", "#ProceduralAnimation", "#SoundDesign", "#Physics"],
       links: {},
       detail: {
-        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Built in 48 hours for a game jam.",
-        contribution: "Made the whole thing solo, including procedural tentacle animation and a movement system that actually feels like controlling a squid.",
-        learnings: "Procedural animation was the main challenge here. Also a good reminder of how much you can get done when you're forced to cut scope and focus."
+        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Every element — art, sound effects, animations, and game logic — was fully developed by me from scratch.",
+        contribution: "Built the entire game solo: gameplay systems, procedural tentacle animation, custom physics-based movement, original sound design, and all visual art assets.",
+        learnings: "Unity, C#, Procedural Animation, Physics Simulation, Audio Design, 2D Art, Custom Shaders."
       }
     },
     {
