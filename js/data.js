@@ -13,14 +13,13 @@ const PROJECTS = {
       detail: {
         overview: "Crossworld Chronicles is a cooperative multiplayer VR game built as a sponsored client project with Coal Car Studio Ltd. The team delivered a vertical slice in Unity with real-time multiplayer and two player roles: the Strategist places and manages defensive turrets from an overhead view, while the Explorer fights through the level in first-person VR. Both players share a mana pool that forces real cooperation rather than just co-existing in the same space.",
         contribution: [
-          "Built dual control systems for both the Strategist and Explorer roles",
-          "Developed a full weapons and combat system",
-          "Built turret placement mechanics and enemy AI logic",
-          "Designed the shared mana system to drive cooperative play",
-          "Implemented health systems and pickup mechanics",
-          "Set up a Scriptable Object architecture for clean, scalable data",
-          "Handled backend development using the client's own tech stack",
-          "First real client engagement: navigated feedback, managed expectations and translated their vision into working features"
+          "Dual control systems for both Strategist and Explorer roles",
+          "Full weapons and combat system",
+          "Turret placement and enemy AI logic",
+          "Shared mana mechanic and health/pickup systems",
+          "Scriptable Object architecture for scalable data",
+          "Backend work on client's tech stack",
+          "Managed client feedback, expectations and delivery throughout"
         ],
         learnings: "Unity, C#, XR Toolkit, VR development, Netcode for GameObjects, real-time multiplayer, backend integration, Scriptable Objects, client communication."
       }
@@ -47,9 +46,9 @@ const PROJECTS = {
       detail: {
         overview: "A third-person stealth game where players must blend in among NPCs and photograph scandalous moments between celebrities without getting caught. Timing, positioning, and awareness are everything.",
         contribution: [
-          "Built the full enemy AI with patrol behaviour and detection logic using NavMesh and Finite State Machines",
-          "Developed player controls and third-person camera rig",
-          "Built a photo analysis system that evaluates shot composition and subject detection"
+          "Enemy AI patrol and detection via NavMesh and Finite State Machines",
+          "Player controls and third-person camera rig",
+          "Photo analysis system evaluating shot composition and subject detection"
         ],
         learnings: "Unity, C#, NavMesh AI, Finite State Machines, Raycast-based detection systems, third-person camera rigs."
       }
@@ -73,8 +72,8 @@ const PROJECTS = {
       detail: {
         overview: "An action game built around chaining rune spells together for big kinetic combos. You're pitted against hordes of enemies and your job is to find the combo that feels the most satisfying to pull off.",
         contribution: [
-          "Developed the enemy AI system, giving each enemy type its own combat abilities that adapt to the player's behaviour",
-          "Built and owned the full VFX pipeline, from particle systems to shader-driven effects"
+          "Enemy AI with per-type combat abilities that adapt to player behaviour",
+          "Full VFX pipeline from particle systems to shader-driven effects"
         ],
         learnings: "Unity, C#, Behaviour Trees, ShaderGraph, VFX Graph, Particle Systems, Combat System Design."
       }
@@ -98,10 +97,10 @@ const PROJECTS = {
       detail: {
         overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Art, sound effects, animations and game logic were all built from scratch.",
         contribution: [
-          "Designed and built all gameplay systems",
-          "Wrote procedural tentacle animation and custom physics-based movement",
-          "Produced all original sound effects and music",
-          "Created all visual art assets"
+          "Gameplay systems and physics-based movement",
+          "Procedural tentacle animation",
+          "Original sound design and music",
+          "All visual art assets"
         ],
         learnings: "Unity, C#, Procedural Animation, Physics Simulation, Audio Design, 2D Art, Custom Shaders."
       }
@@ -119,9 +118,9 @@ const PROJECTS = {
       detail: {
         overview: "A 3D precision platformer set in a mythological arctic world. Two spirits, tight movement mechanics, and an emotional story running through it all.",
         contribution: [
-          "Led game design across the full project",
-          "Built the character controller from scratch to get that precise, responsive feel",
-          "Designed all levels with progressively increasing complexity"
+          "Led game design across the project",
+          "Custom character controller built for a precise, responsive feel",
+          "All levels designed with increasing complexity"
         ],
         learnings: "Learned a ton about what makes a platformer feel good to control. Spent a lot of time on player feedback and movement responsiveness. Also got to explore how level design can tell a story without dialogue."
       }
@@ -139,9 +138,9 @@ const PROJECTS = {
       detail: {
         overview: "Inverts the classic Souls formula into a bright colorful world that is still just as punishing. Runs are procedurally generated so each attempt plays out differently.",
         contribution: [
-          "Designed the combat system",
-          "Built the procedural level generation",
-          "Put together a minimal UI inspired by FromSoftware games"
+          "Combat system design",
+          "Procedural dungeon generation",
+          "Minimal FromSoftware-inspired UI"
         ],
         learnings: "Dug deep into what makes Souls games actually work from a design perspective. The brutality has to feel fair or players just quit. Also got into procedural 2D dungeon generation as a system."
       }
@@ -166,8 +165,8 @@ const PROJECTS = {
       detail: {
         overview: "A multiplayer deathmatch map for Garry's Mod set in a dense woodland clearing with a central fort. Built to encourage diverse combat scenarios across different play styles.",
         contribution: [
-          "Designed the full map layout from scratch",
-          "Ran multiple playtests and iterated on chokepoints and spawn balance based on what I observed"
+          "Full map layout designed from scratch",
+          "Iterated on chokepoints and spawn balance through playtests"
         ],
         learnings: "Learned the fundamentals of FPS map flow, how sightlines shape player behavior, and how much a small layout tweak can change the feel of a fight."
       }
