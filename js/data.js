@@ -106,7 +106,12 @@ const PROJECTS = {
     {
       id: "lost-in-the-woods",
       title: "Lost in the Woods",
-      thumbnail: "assets/thumbnails/lost-in-woods.jpg",
+      thumbnail: "assets/screenshots/LostInWoods0.png",
+      thumbnailContainDark: true,
+      screenshots: [
+        "assets/screenshots/LostInWoods1.jpg",
+        "assets/screenshots/LostInWoods1.png"
+      ],
       summary: "A Garry's Mod deathmatch map built around asymmetric sightlines and vertical combat.",
       genre: "Level Design",
       platform: ["PC"],
