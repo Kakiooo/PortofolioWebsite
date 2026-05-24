@@ -262,3 +262,41 @@ const App = (() => {
 })();
 
 document.addEventListener("DOMContentLoaded", App.init);
+
+// ── Toast ─────────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  let toast = document.getElementById("toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add("toast-show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove("toast-show"), 2200);
+}
+
+// ── Resume download ───────────────────────────────────────────────────────────
+function downloadResume() {
+  const a = document.createElement("a");
+  a.href = "assets/resume.pdf";
+  a.download = "Han_Zhang_Resume.pdf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ── Copy email ────────────────────────────────────────────────────────────────
+function copyEmail() {
+  const email = "kakiorrah99@outlook.com";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email)
+      .then(() => showToast("Email copied!"))
+      .catch(() => {
+        prompt("Copy this address:", email);
+      });
+  } else {
+    prompt("Copy this address:", email);
+  }
+}

@@ -1083,6 +1083,34 @@ h3 { font-size: 1.1rem; }
   .skill-cube .skill-svg svg { width: 32px; height: 32px; }
 }
 
+/* ── Toast ──────────────────────────────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: rgba(15, 8, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 1.2rem;
+  border-radius: 99px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), 0 4px 20px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+#toast.toast-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* ── Responsive: Mobile (≤ 480px) ──────────────────────────────────────── */
 @media (max-width: 480px) {
   .hero-section { padding: 4.5rem 1rem 2rem; }
