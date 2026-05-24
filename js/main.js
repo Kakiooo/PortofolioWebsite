@@ -66,11 +66,13 @@ const App = (() => {
             </div>
             <div class="card-footer">
               <span class="card-role">${p.roles[0]}</span>
-              ${p.links?.browser ? `<span class="play-badge">Play in browser</span>` : ""}
             </div>
           </div>
         </div>
-        <div class="card-tab"></div>
+        ${p.links?.browser
+          ? `<a class="card-tab card-tab-play" href="${p.links.browser}" target="_blank"><span>▶ Play</span></a>`
+          : `<div class="card-tab"></div>`
+        }
       </div>
     `).join("");
 
@@ -79,6 +81,10 @@ const App = (() => {
         e.stopPropagation();
         openProjectDetail(wrapper.dataset.id);
       });
+    });
+
+    container.querySelectorAll(".card-tab-play").forEach(tab => {
+      tab.addEventListener("click", (e) => e.stopPropagation());
     });
   }
 
@@ -99,6 +105,7 @@ const App = (() => {
     section.innerHTML = `
       <div class="detail-back">
         <button class="btn-back" id="btn-back">← Back</button>
+        ${p.links?.browser ? `<a href="${p.links.browser}" class="btn-play" target="_blank">▶ Play in Browser</a>` : ""}
       </div>
       <div class="detail-hero">
         <div class="detail-thumb">
@@ -113,7 +120,6 @@ const App = (() => {
             <span class="meta-label">Platform:</span>
             ${p.platform.map(pl => `<span class="meta-value">${pl}</span>`).join("")}
           </div>
-          ${p.links?.browser ? `<a href="${p.links.browser}" class="btn-play" target="_blank">Play in Browser</a>` : ""}
         </div>
       </div>
       <div class="detail-body">

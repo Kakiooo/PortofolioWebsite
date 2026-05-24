@@ -683,11 +683,11 @@ h3 { font-size: 1.1rem; }
 .skill-tag {
   font-family: var(--font-mono);
   font-size: 0.58rem;
-  color: var(--hero-bg);
-  background: rgba(15, 8, 0, 0.1);
-  border: 1px solid rgba(15, 8, 0, 0.15);
-  border-radius: 4px;
-  padding: 0.15rem 0.45rem;
+  font-weight: 600;
+  color: var(--cream);
+  background: var(--orange);
+  border-radius: 20px;
+  padding: 0.2rem 0.55rem;
 }
 
 .skill-tag.large {
@@ -746,9 +746,38 @@ h3 { font-size: 1.1rem; }
   border-radius: 2px;
 }
 
+/* Play tab — replaces decorative tab for playable projects */
+.card-tab-play {
+  text-decoration: none;
+  background: rgba(224, 96, 16, 0.28);
+  transition: background var(--transition), box-shadow var(--transition);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.card-tab-play::before { display: none; }
+
+.card-tab-play span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.card-tab-play:hover {
+  background: rgba(224, 96, 16, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
 /* ── Project Detail ─────────────────────────────────────────────────────── */
 
-.detail-back { margin-bottom: 2rem; }
+.detail-back {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 .btn-back {
   font-family: var(--font-mono);
