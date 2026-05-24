@@ -628,9 +628,12 @@ h3 { font-size: 1.1rem; }
 .card-thumb.no-thumb img { display: none; }
 .card-thumb.no-thumb .thumb-placeholder { display: flex; }
 
-.thumb-contain { background: #fff !important; }
-.thumb-contain img { object-fit: contain; padding: 0.75rem; }
-.card-thumb.thumb-contain::after { display: none; }
+.thumb-contain       { background: #fff !important; }
+.thumb-contain-dark  { background: var(--hero-bg) !important; }
+.thumb-contain img,
+.thumb-contain-dark img { object-fit: contain; padding: 0.5rem; }
+.card-thumb.thumb-contain::after,
+.card-thumb.thumb-contain-dark::after { display: none; }
 
 .card-body {
   padding: 0.9rem 1.1rem 1rem;

@@ -28,7 +28,13 @@ const PROJECTS = {
     {
       id: "runekinetic",
       title: "Runekinetic",
-      thumbnail: "assets/thumbnails/runekinetic.jpg",
+      thumbnail: "assets/screenshots/Runekinetic0.gif",
+      thumbnailContainDark: true,
+      screenshots: [
+        "assets/screenshots/Runekinetic2.jpg",
+        "assets/screenshots/Runekinetic3.jpg",
+        "assets/screenshots/Runekinetic1.jpg"
+      ],
       summary: "A fast-paced action game where rune-casting and kinetic combat combine into something pretty satisfying.",
       genre: "Action",
       platform: ["PC"],
