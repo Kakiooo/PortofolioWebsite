@@ -909,6 +909,20 @@ h3 { font-size: 1.1rem; }
   letter-spacing: 0.05em;
 }
 
+/* ── Project Video ──────────────────────────────────────────────────────── */
+.detail-video-block {
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.detail-video {
+  width: 100%;
+  display: block;
+  max-height: 480px;
+  background: #000;
+}
+
 .contribution-list {
   list-style: none;
   padding: 0;

@@ -3,7 +3,15 @@ const PROJECTS = {
     {
       id: "crossworld-chronicles",
       title: "Crossworld Chronicles",
-      thumbnail: "",
+      thumbnail: "assets/screenshots/CrossworldChronicles.jpg",
+      thumbnailContainDark: true,
+      video: "assets/Video/CrossworldChronicleTrailer.mp4",
+      screenshots: [
+        "assets/screenshots/CrossworldChronicles4.jpg",
+        "assets/screenshots/CrossworldChronicles5.jpg",
+        "assets/screenshots/CrossworldChronicles1.jpg",
+        "assets/screenshots/CrossworldChronicles6.jpg"
+      ],
       summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time netcode.",
       genre: "Co-op VR",
       platform: ["PC VR"],

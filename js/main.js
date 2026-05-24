@@ -115,6 +115,13 @@ const App = (() => {
         </div>
       </div>
       <div class="detail-body">
+        ${p.video ? `
+        <div class="detail-block detail-video-block">
+          <video class="detail-video" controls preload="metadata" playsinline>
+            <source src="${p.video}" type="video/mp4">
+          </video>
+        </div>
+        ` : ""}
         <div class="detail-block">
           <h2>Overview</h2>
           <p>${p.detail.overview}</p>
