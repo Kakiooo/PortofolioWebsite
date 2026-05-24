@@ -7,6 +7,8 @@ const PROJECTS = {
       thumbnailContainDark: true,
       video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
+        "assets/screenshots/CrossworldChronicles2.jpg",
+        "assets/screenshots/crossworldChronicles3.jpg",
         "assets/screenshots/CrossworldChronicles4.jpg",
         "assets/screenshots/CrossworldChronicles5.jpg",
         "assets/screenshots/CrossworldChronicles1.jpg",
