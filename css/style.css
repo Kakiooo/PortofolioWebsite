@@ -628,8 +628,8 @@ h3 { font-size: 1.1rem; }
 .card-thumb.no-thumb img { display: none; }
 .card-thumb.no-thumb .thumb-placeholder { display: flex; }
 
-.card-thumb.thumb-contain { background: #fff; }
-.card-thumb.thumb-contain img { object-fit: contain; padding: 0.75rem; }
+.thumb-contain { background: #fff !important; }
+.thumb-contain img { object-fit: contain; padding: 0.75rem; }
 .card-thumb.thumb-contain::after { display: none; }
 
 .card-body {

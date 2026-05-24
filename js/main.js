@@ -100,7 +100,7 @@ const App = (() => {
         <button class="btn-back" id="btn-back">← Back</button>
       </div>
       <div class="detail-hero">
-        <div class="detail-thumb">
+        <div class="detail-thumb${p.thumbnailContain ? " thumb-contain" : ""}">
           <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
           <div class="thumb-placeholder large"><span>${p.title[0]}</span></div>
         </div>
