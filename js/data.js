@@ -118,13 +118,23 @@ const PROJECTS = {
     {
       id: "atka-and-iku",
       title: "Atka and Iku",
-      thumbnail: "assets/thumbnails/atka-iku.jpg",
+      thumbnail: "assets/screenshots/Atka and Iku.png",
+      thumbnailContainDark: true,
+      screenshots: [
+        "assets/screenshots/AtkIKu1.jpg",
+        "assets/screenshots/AtkIKu2.jpg",
+        "assets/screenshots/AtkIKu3.jpg",
+        "assets/screenshots/AtkIKu4.jpg",
+        "assets/screenshots/AtkIKu5.jpg",
+        "assets/screenshots/AtkIKu6.jpg",
+        "assets/screenshots/AtkIKu7.jpg"
+      ],
       summary: "A 3D precision platformer following two spirits through a frozen mythological world.",
       genre: "Platformer",
       platform: ["PC"],
       roles: ["Lead Game Designer", "Level Designer", "Programmer"],
       skills: ["#Unity", "#C#", "#LevelDesign", "#PrecisionPlatformer", "#3D", "#Narrative"],
-      links: { browser: "#" },
+      links: {},
       detail: {
         overview: "A 3D precision platformer set in a mythological arctic world. Two spirits, tight movement mechanics, and an emotional story running through it all.",
         contribution: [
@@ -138,13 +148,22 @@ const PROJECTS = {
     {
       id: "daylight-souls",
       title: "Daylight Souls",
-      thumbnail: "assets/thumbnails/daylight-souls.jpg",
+      thumbnail: "assets/screenshots/Diebydaylight.png",
+      thumbnailContainDark: true,
+      screenshots: [
+        "assets/screenshots/DaylightSouls1.jpg",
+        "assets/screenshots/DaylightSouls2.jpg",
+        "assets/screenshots/DaylightSouls3.jpg",
+        "assets/screenshots/DaylightSouls4.jpg",
+        "assets/screenshots/DaylightSouls5.jpg",
+        "assets/screenshots/DaylightSouls6.jpg"
+      ],
       summary: "A 2D roguelite Souls-like where death is the only teacher in a bright sunlit world.",
       genre: "Action",
       platform: ["PC"],
       roles: ["Systems Designer", "Programmer", "UI/UX Designer"],
       skills: ["#Unity", "#C#", "#SoulsLike", "#Roguelite", "#UIDesign", "#ProceduralGen"],
-      links: { browser: "#" },
+      links: {},
       detail: {
         overview: "Inverts the classic Souls formula into a bright colorful world that is still just as punishing. Runs are procedurally generated so each attempt plays out differently.",
         contribution: [
