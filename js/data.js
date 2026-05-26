@@ -125,20 +125,21 @@ const PROJECTS = {
         "assets/screenshots/AtkIKu6.jpg",
         "assets/screenshots/AtkIKu7.jpg"
       ],
-      summary: "A 3D precision platformer following two spirits through a frozen mythological world.",
+      summary: "A 2D precise platformer following two spirits through a frozen mythological world.",
       genre: "Platformer",
       platform: ["PC"],
       roles: ["Lead Game Designer", "Level Designer", "Programmer"],
-      skills: ["#Unity", "#C#", "#LevelDesign", "#PrecisionPlatformer", "#3D", "#Narrative"],
+      skills: ["#Unity", "#C#", "#LevelDesign", "#PrecisionPlatformer", "#Narrative"],
       links: {},
       detail: {
-        overview: "A 3D precision platformer set in a mythological arctic world. Two spirits, tight movement mechanics, and an emotional story running through it all.",
+        overview: "A 2D precise platformer set in a mythological arctic world. Two spirits, tight movement mechanics, and an emotional story running through it all. With special jumping mechanics, players get a brand new experience compared to a general platformer.",
         contribution: [
+          "Animation system design and development",
           "Led game design across the project",
           "Custom character controller built for a precise, responsive feel",
           "All levels designed with increasing complexity"
         ],
-        learnings: "Learned a ton about what makes a platformer feel good to control. Spent a lot of time on player feedback and movement responsiveness. Also got to explore how level design can tell a story without dialogue."
+        learnings: "Built a character controller that handles precise movement and player feedback without feeling floaty. Designed levels that ramp in complexity while guiding players through the story without a single line of dialogue."
       }
     },
     {
@@ -166,7 +167,7 @@ const PROJECTS = {
           "Random attacking pattern system",
           "UI system"
         ],
-        learnings: "Dug deep into what makes Souls games actually work from a design perspective. The brutality has to feel fair or players just quit. Also built a roguelike system to keep runs feeling fresh."
+        learnings: "Designed a combat system where the player controls the boss's attack sequence, giving each run a different strategic feel. Built a roguelike system on top of that to keep runs varied and replayable."
       }
     }
   ],
