@@ -3,7 +3,7 @@ const PROJECTS = {
     {
       id: "crossworld-chronicles",
       title: "Crossworld Chronicles",
-      thumbnail: "assets/screenshots/CrossworldChronicles.jpg",
+      thumbnail: "assets/screenshots/CrossworldChronicleLogo.png",
       thumbnailContain: true,
       video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
