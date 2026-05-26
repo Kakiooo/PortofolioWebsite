@@ -611,7 +611,7 @@ h3 { font-size: 1.1rem; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 38%, rgba(10, 5, 0, 0.92) 100%);
+  background: linear-gradient(to bottom, transparent 55%, rgba(10, 5, 0, 0.62) 100%);
   pointer-events: none;
   z-index: 2;
 }
