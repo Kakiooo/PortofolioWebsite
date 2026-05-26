@@ -644,6 +644,9 @@ h3 { font-size: 1.1rem; }
 .card-thumb.no-thumb img { display: none; }
 .card-thumb.no-thumb .thumb-placeholder { display: flex; }
 
+.card-thumb.thumb-contain img,
+.detail-thumb.thumb-contain img { object-fit: contain; }
+
 .card-body {
   padding: 0.9rem 1.1rem 1rem;
   flex: 1;

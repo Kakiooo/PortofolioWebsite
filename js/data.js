@@ -4,6 +4,7 @@ const PROJECTS = {
       id: "crossworld-chronicles",
       title: "Crossworld Chronicles",
       thumbnail: "assets/screenshots/CrossworldChronicles.jpg",
+      thumbnailContain: true,
       video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
         "assets/screenshots/CrossworldChronicles2.jpg",
@@ -37,6 +38,7 @@ const PROJECTS = {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
+      thumbnailContain: true,
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],
