@@ -4,7 +4,6 @@ const PROJECTS = {
       id: "crossworld-chronicles",
       title: "Crossworld Chronicles",
       thumbnail: "assets/screenshots/CrossworldChronicles.jpg",
-      thumbnailContainDark: true,
       video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
         "assets/screenshots/CrossworldChronicles2.jpg",
@@ -38,7 +37,6 @@ const PROJECTS = {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
-      thumbnailContain: true,
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],
@@ -67,7 +65,6 @@ const PROJECTS = {
       id: "runekinetic",
       title: "Runekinetic",
       thumbnail: "assets/screenshots/Runekinetic0.gif",
-      thumbnailContainDark: true,
       screenshots: [
         "assets/screenshots/Runekinetic2.jpg",
         "assets/screenshots/Runekinetic3.jpg",
@@ -119,7 +116,6 @@ const PROJECTS = {
       id: "atka-and-iku",
       title: "Atka and Iku",
       thumbnail: "assets/screenshots/Atka and Iku.png",
-      thumbnailContainDark: true,
       screenshots: [
         "assets/screenshots/AtkIKu1.jpg",
         "assets/screenshots/AtkIKu2.jpg",
@@ -179,7 +175,6 @@ const PROJECTS = {
       id: "lost-in-the-woods",
       title: "Lost in the Woods",
       thumbnail: "assets/screenshots/LostInWoods0.png",
-      thumbnailContainDark: true,
       screenshots: [
         "assets/screenshots/LostInWoods1.jpg",
         "assets/screenshots/LostInWoods1.png"
