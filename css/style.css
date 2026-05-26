@@ -345,13 +345,13 @@ h3 { font-size: 1.1rem; }
 
 .hero-identity {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 2.5rem;
 }
 
 .hero-avatar {
-  width: clamp(90px, 9vw, 150px);
-  height: clamp(90px, 9vw, 150px);
+  aspect-ratio: 1 / 1;
+  width: auto;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--orange);
