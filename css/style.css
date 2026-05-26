@@ -343,6 +343,22 @@ h3 { font-size: 1.1rem; }
   padding: 8rem 3rem 3rem;
 }
 
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-avatar {
+  width: clamp(90px, 9vw, 150px);
+  height: clamp(90px, 9vw, 150px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--orange);
+  flex-shrink: 0;
+  box-shadow: 0 0 30px rgba(224, 96, 16, 0.25);
+}
+
 .hero-name {
   font-family: var(--font-head);
   font-size: clamp(5rem, 18vw, 14rem);
