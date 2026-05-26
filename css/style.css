@@ -24,7 +24,7 @@
   --transition:  0.25s ease;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--page-bg);
@@ -347,6 +347,8 @@ h3 { font-size: 1.1rem; }
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .hero-avatar {
