@@ -148,10 +148,9 @@ const PROJECTS = {
     {
       id: "daylight-souls",
       title: "Daylight Souls",
-      thumbnail: "assets/screenshots/Diebydaylight.png",
-      thumbnailContainDark: true,
+      thumbnail: "assets/screenshots/DaylightSouls1.jpg",
       screenshots: [
-        "assets/screenshots/DaylightSouls1.jpg",
+        "assets/screenshots/Diebydaylight.png",
         "assets/screenshots/DaylightSouls2.jpg",
         "assets/screenshots/DaylightSouls3.jpg",
         "assets/screenshots/DaylightSouls4.jpg",
