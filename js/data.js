@@ -153,20 +153,20 @@ const PROJECTS = {
         "assets/screenshots/DaylightSouls5.jpg",
         "assets/screenshots/DaylightSouls6.jpg"
       ],
-      summary: "A 2D roguelite Souls-like where death is the only teacher in a bright sunlit world.",
+      summary: "A 2D roguelite Souls-like where players decide the attacking pattern of the boss.",
       genre: "Action",
       platform: ["PC"],
       roles: ["Systems Designer", "Programmer", "UI/UX Designer"],
-      skills: ["#Unity", "#C#", "#SoulsLike", "#Roguelite", "#UIDesign", "#ProceduralGen"],
+      skills: ["#Unity", "#C#", "#SoulsLike", "#Roguelite", "#UIDesign", "#BossDesign"],
       links: {},
       detail: {
-        overview: "Inverts the classic Souls formula into a bright colorful world that is still just as punishing. Runs are procedurally generated so each attempt plays out differently.",
+        overview: "Daylight Souls follows the formula of a hardcore Souls-like game, but instead of just learning a boss's attacking pattern, players can actually choose each individual move the boss will perform. With more control over the boss's behavior, players have more room to build strategies and counter enemies on their own terms.",
         contribution: [
-          "Combat system design",
-          "Procedural dungeon generation",
-          "Minimal FromSoftware-inspired UI"
+          "Combat system design and development",
+          "Random attacking pattern system",
+          "UI system"
         ],
-        learnings: "Dug deep into what makes Souls games actually work from a design perspective. The brutality has to feel fair or players just quit. Also got into procedural 2D dungeon generation as a system."
+        learnings: "Dug deep into what makes Souls games actually work from a design perspective. The brutality has to feel fair or players just quit. Also built a roguelike system to keep runs feeling fresh."
       }
     }
   ],
