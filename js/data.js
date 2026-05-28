@@ -18,7 +18,7 @@ const PROJECTS = {
       genre: "Co-op VR",
       platform: ["PC VR"],
       roles: ["Lead Developer"],
-      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Netcode", "#ScriptableObjects", "#BackendDev"],
+      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Netcode", "#ScriptableObjects", "#BackendDev", "#AzureDevOps"],
       links: {},
       detail: {
         overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice with real-time netcode, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other.",
@@ -29,6 +29,8 @@ const PROJECTS = {
           "Shared mana mechanic and health/pickup systems",
           "Scriptable Object architecture for scalable data",
           "Backend work on client's tech stack",
+          "Used Azure DevOps for code quality checks and aligned the team with a consistent coding structure",
+          "Mentored developers on technical problems throughout the project",
           "Managed client feedback, expectations and delivery throughout"
         ],
         learnings: "Unity, C#, XR Toolkit, VR development, Netcode for GameObjects, real-time multiplayer, backend integration, Scriptable Objects, client communication."
