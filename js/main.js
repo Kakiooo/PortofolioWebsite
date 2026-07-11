@@ -58,15 +58,15 @@ const App = (() => {
             <div class="thumb-placeholder"><span>${p.title[0]}</span></div>
           </div>
           <div class="card-body">
-            <div class="card-genre">${p.genre}</div>
+            <div class="card-role-top">
+              <span class="card-role-eyebrow">Role</span>
+              <span class="card-role">${p.roles.join(" · ")}</span>
+            </div>
             <h3 class="card-title">${p.title}</h3>
+            <div class="card-genre">${p.genre}</div>
             <p class="card-summary">${p.summary}</p>
             <div class="card-skills">
               ${p.skills.map(s => `<span class="skill-tag">${s}</span>`).join("")}
-            </div>
-            <div class="card-footer">
-              <span class="card-role-eyebrow">Role</span>
-              <span class="card-role">${p.roles.join(" · ")}</span>
             </div>
           </div>
         </div>
@@ -106,12 +106,12 @@ const App = (() => {
           <div class="thumb-placeholder large"><span>${p.title[0]}</span></div>
         </div>
         <div class="detail-header">
-          <div class="detail-genre">${p.genre}</div>
-          <h1 class="detail-title">${p.title}</h1>
           <div class="detail-role">
             <span class="detail-role-eyebrow">Role</span>
             <span class="detail-role-value">${p.roles.join(" · ")}</span>
           </div>
+          <h1 class="detail-title">${p.title}</h1>
+          <div class="detail-genre">${p.genre}</div>
           <p class="detail-summary">${p.summary}</p>
           <div class="detail-meta">
             <span class="meta-label">Platform:</span>
