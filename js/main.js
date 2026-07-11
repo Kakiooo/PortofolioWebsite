@@ -65,7 +65,8 @@ const App = (() => {
               ${p.skills.map(s => `<span class="skill-tag">${s}</span>`).join("")}
             </div>
             <div class="card-footer">
-              <span class="card-role">${p.roles[0]}</span>
+              <span class="card-role-eyebrow">Role</span>
+              <span class="card-role">${p.roles.join(" · ")}</span>
             </div>
           </div>
         </div>
@@ -107,6 +108,10 @@ const App = (() => {
         <div class="detail-header">
           <div class="detail-genre">${p.genre}</div>
           <h1 class="detail-title">${p.title}</h1>
+          <div class="detail-role">
+            <span class="detail-role-eyebrow">Role</span>
+            <span class="detail-role-value">${p.roles.join(" · ")}</span>
+          </div>
           <p class="detail-summary">${p.summary}</p>
           <div class="detail-meta">
             <span class="meta-label">Platform:</span>
