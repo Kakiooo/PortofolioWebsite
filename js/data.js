@@ -33,7 +33,8 @@ const PROJECTS = {
           "Mentored developers on technical problems throughout the project",
           "Managed client feedback, expectations and delivery throughout"
         ],
-        learnings: "Unity, C#, XR Toolkit, VR development, Netcode for GameObjects, real-time multiplayer, backend integration, Scriptable Objects, client communication."
+        challenge: "Keeping two completely different play experiences in sync over the network. The Strategist plays from an overhead view while the Explorer is in first-person VR, and both share one mana pool, so every turret placement, spell, and pickup had to resolve consistently for both players in real time without desync or VR-breaking latency.",
+        solution: "I built the networking on Netcode for GameObjects with server-authoritative state for shared resources like the mana pool, so neither client could drift out of sync. Scriptable Object architecture kept gameplay data decoupled from networked logic, which made it fast to iterate on turrets and weapons without touching netcode. Regular playtests with both roles active caught edge cases early."
       }
     },
     {
@@ -62,7 +63,8 @@ const PROJECTS = {
           "Player controls and third-person camera rig",
           "Photo analysis system evaluating shot composition and subject detection"
         ],
-        learnings: "Unity, C#, NavMesh AI, Finite State Machines, Raycast-based detection systems, third-person camera rigs."
+        challenge: "Making the photo system actually judge a photo. The game needed to evaluate whether a screenshot the player took counted as a scandalous moment, which meant analyzing shot composition and detecting which subjects were in frame at the moment of capture.",
+        solution: "I built a raycast-based analysis system that checks subject visibility, framing, and occlusion at the instant the photo is taken, then scores the shot. Combining that with FSM-driven NPC behavior meant the moments worth photographing emerged naturally from the AI rather than being scripted."
       }
     },
     {
@@ -86,7 +88,8 @@ const PROJECTS = {
           "Enemy AI with per-type combat abilities that adapt to player behaviour",
           "Full VFX pipeline from particle systems to shader-driven effects"
         ],
-        learnings: "Unity, C#, Behaviour Trees, ShaderGraph, VFX Graph, Particle Systems, Combat System Design."
+        challenge: "Making combos feel kinetic rather than just functional. Chaining rune spells had to look and feel impactful, but early versions read as visually flat, and enemies that ignored player behavior made every fight play out the same way.",
+        solution: "I built the VFX pipeline end to end, from particle systems to shader-driven effects in ShaderGraph and VFX Graph, tuning timing and feedback until combos landed with weight. On the AI side, behaviour trees gave each enemy type combat abilities that adapt to how the player fights, so combos have to be chosen, not memorized."
       }
     },
     {
@@ -113,7 +116,8 @@ const PROJECTS = {
           "Original sound design and music",
           "All visual art assets"
         ],
-        learnings: "Unity, C#, Procedural Animation, Physics Simulation, Audio Design, 2D Art, Custom Shaders."
+        challenge: "Making a physics-driven squid feel alive. Hand-animating tentacles would never react believably to movement and collisions, and as a solo project every discipline (art, sound, animation, code) was on me.",
+        solution: "I wrote a procedural tentacle animation system driven by the physics simulation itself, so the tentacles trail, squash, and react naturally to whatever the player does. Building all the art, sound, and music myself kept the whole game tonally consistent from a single vision."
       }
     },
     {
@@ -143,7 +147,8 @@ const PROJECTS = {
           "Custom character controller built for a precise, responsive feel",
           "All levels designed with increasing complexity"
         ],
-        learnings: "Built a character controller that handles precise movement and player feedback without feeling floaty. Designed levels that ramp in complexity while guiding players through the story without a single line of dialogue."
+        challenge: "Precision platformers live or die on game feel. The special jumping mechanics had to feel responsive and exact, without the floatiness that default physics gives you, and the levels had to teach those mechanics and tell an emotional story without a single line of dialogue.",
+        solution: "I built a custom character controller from scratch, tuning acceleration, jump arcs, and input buffering until movement felt precise and readable. Levels were designed to ramp in complexity, introducing each mechanic in a safe space before testing it, using layout and visual language alone to guide players through the story."
       }
     },
     {
@@ -171,7 +176,8 @@ const PROJECTS = {
           "Random attacking pattern system",
           "UI system"
         ],
-        learnings: "Designed a combat system where the player controls the boss's attack sequence, giving each run a different strategic feel. Built a roguelike system on top of that to keep runs varied and replayable."
+        challenge: "Letting players choose the boss's attacks without killing the challenge. If players control the boss's moveset, the obvious risk is that they just pick whatever is easiest to dodge and the Souls-like tension disappears.",
+        solution: "I designed the combat system so that choosing attack patterns is a strategic trade-off rather than a difficulty dial, and layered a randomized roguelite structure on top so no two runs resolve the same way. The result keeps the mastery loop of a Souls-like while giving players real agency over the fight."
       }
     }
   ],
@@ -196,7 +202,8 @@ const PROJECTS = {
           "Full map layout designed from scratch",
           "Iterated on chokepoints and spawn balance through playtests"
         ],
-        learnings: "Learned the fundamentals of FPS map flow, how sightlines shape player behavior, and how much a small layout tweak can change the feel of a fight."
+        challenge: "Making one map serve every play style. A deathmatch map with a central fort naturally favors defenders and long sightlines, which risks stale gameplay where snipers dominate and close-range players have no route in.",
+        solution: "I designed asymmetric sightlines and vertical routes so aggressive, sneaky, and defensive players all have viable options, then iterated on chokepoints and spawn balance through repeated playtests. Watching how small layout tweaks completely changed the feel of a fight shaped how I approach space design now."
       }
     }
   ],

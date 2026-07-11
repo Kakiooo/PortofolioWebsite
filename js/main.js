@@ -115,17 +115,43 @@ const App = (() => {
         </div>
       </div>
       <div class="detail-body">
+        <div class="detail-block">
+          <h2>Overview</h2>
+          <p>${p.detail.overview}</p>
+          <div class="detail-skills">
+            ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
+          </div>
+        </div>
+        <div class="detail-block">
+          <h2>My Contribution</h2>
+          <div class="role-chips">
+            ${p.roles.map(r => `<span class="role-chip">${r}</span>`).join("")}
+          </div>
+          ${Array.isArray(p.detail.contribution)
+            ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
+            : `<p>${p.detail.contribution}</p>`
+          }
+        </div>
+        ${p.detail.challenge ? `
+        <div class="detail-block">
+          <h2>Biggest Challenge</h2>
+          <p>${p.detail.challenge}</p>
+        </div>
+        ` : ""}
+        ${p.detail.solution ? `
+        <div class="detail-block">
+          <h2>How I Solved It</h2>
+          <p>${p.detail.solution}</p>
+        </div>
+        ` : ""}
         ${p.video ? `
         <div class="detail-block detail-video-block">
+          <h2>Trailer</h2>
           <video class="detail-video" controls preload="metadata" playsinline>
             <source src="${p.video}" type="video/mp4">
           </video>
         </div>
         ` : ""}
-        <div class="detail-block">
-          <h2>Overview</h2>
-          <p>${p.detail.overview}</p>
-        </div>
         ${p.screenshots?.length ? `
         <div class="detail-block">
           <h2>Screenshots</h2>
@@ -138,23 +164,6 @@ const App = (() => {
           </div>
         </div>
         ` : ""}
-        <div class="detail-block">
-          <h2>My Contribution</h2>
-          <div class="role-chips">
-            ${p.roles.map(r => `<span class="role-chip">${r}</span>`).join("")}
-          </div>
-          ${Array.isArray(p.detail.contribution)
-            ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
-            : `<p>${p.detail.contribution}</p>`
-          }
-        </div>
-        <div class="detail-block">
-          <h2>What I Built</h2>
-          <p>${p.detail.learnings}</p>
-          <div class="detail-skills">
-            ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
-          </div>
-        </div>
       </div>
     `;
 
