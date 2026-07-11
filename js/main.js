@@ -203,11 +203,6 @@ const App = (() => {
     });
   }
 
-  // ── Campfire click tracking ───────────────────────────────────────────────
-  function initCampfireTracking() {
-    document.addEventListener("click", () => CAMPFIRE.increment());
-  }
-
   // ── Nav links ─────────────────────────────────────────────────────────────
   function initNav() {
     const navbar = document.querySelector(".navbar");
@@ -277,12 +272,10 @@ const App = (() => {
 
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
-    CAMPFIRE.init();
     initNav();
     initScrollSpy();
     initProjectFilter();
     initCategoryButtons();
-    initCampfireTracking();
     renderProjectGrid();
     handleHash();
     window.addEventListener("popstate", (e) => {
