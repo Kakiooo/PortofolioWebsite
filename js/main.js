@@ -54,7 +54,7 @@ const App = (() => {
       <div class="project-card-wrapper" data-id="${p.id}" data-category="${p.category}">
         <div class="project-card">
           <div class="card-thumb${p.thumbnailContain ? ' thumb-contain' : ''}" style="--thumb-src: url('${p.thumbnail}')">
-            <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
+            <img src="${p.thumbnail}" alt="${p.title}" style="${p.thumbnailPosition ? `object-position:${p.thumbnailPosition};` : ''}${p.thumbnailPad ? `padding:${p.thumbnailPad};` : ''}" onerror="this.parentElement.classList.add('no-thumb')">
             <div class="thumb-placeholder"><span>${p.title[0]}</span></div>
           </div>
           <div class="card-body">
@@ -102,7 +102,7 @@ const App = (() => {
       </div>
       <div class="detail-hero">
         <div class="detail-thumb${p.thumbnailContain ? ' thumb-contain' : ''}" style="--thumb-src: url('${p.thumbnail}')">
-          <img src="${p.thumbnail}" alt="${p.title}" onerror="this.parentElement.classList.add('no-thumb')">
+          <img src="${p.thumbnail}" alt="${p.title}" style="${p.thumbnailPosition ? `object-position:${p.thumbnailPosition};` : ''}${p.thumbnailPad ? `padding:${p.thumbnailPad};` : ''}" onerror="this.parentElement.classList.add('no-thumb')">
           <div class="thumb-placeholder large"><span>${p.title[0]}</span></div>
         </div>
         <div class="detail-header">
@@ -278,6 +278,9 @@ const App = (() => {
     initCategoryButtons();
     renderProjectGrid();
     handleHash();
+    document.getElementById("project-detail-overlay").addEventListener("click", (e) => {
+      if (e.target.id === "project-detail-overlay") closeProjectDetail();
+    });
     window.addEventListener("popstate", (e) => {
       const overlay = document.getElementById("project-detail-overlay");
       if (e.state?.overlay) {

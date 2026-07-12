@@ -5,6 +5,7 @@ const PROJECTS = {
       title: "Crossworld Chronicles",
       thumbnail: "assets/screenshots/CrossworldChronicleLogo.png",
       thumbnailContain: true,
+      thumbnailPad: "0.2rem",
       video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
       screenshots: [
         "assets/screenshots/CrossworldChronicles2.jpg",
@@ -14,27 +15,27 @@ const PROJECTS = {
         "assets/screenshots/CrossworldChronicles1.jpg",
         "assets/screenshots/CrossworldChronicles6.jpg"
       ],
-      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time netcode.",
+      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time multiplayer powered by Microsoft PlayFab.",
       genre: "Co-op VR",
       platform: ["PC VR"],
       roles: ["Lead Developer"],
-      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Netcode", "#ScriptableObjects", "#BackendDev", "#AzureDevOps"],
+      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#MicrosoftPlayFab", "#ScalableStructure", "#AzureDevOps"],
       links: {},
       detail: {
-        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice with real-time netcode, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other.",
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice with real-time multiplayer powered by Microsoft PlayFab, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other.",
         contribution: [
           "Dual control systems for both Strategist and Explorer roles",
           "Full weapons and combat system",
           "Turret placement and enemy AI logic",
           "Shared mana mechanic and health/pickup systems",
-          "Scriptable Object architecture for scalable data",
+          "Scriptable Object architecture for a scalable, designer-friendly structure",
           "Backend work on client's tech stack",
           "Used Azure DevOps for code quality checks and aligned the team with a consistent coding structure",
           "Mentored developers on technical problems throughout the project",
           "Managed client feedback, expectations and delivery throughout"
         ],
         challenge: "Keeping two completely different play experiences in sync over the network. The Strategist plays from an overhead view while the Explorer is in first-person VR, and both share one mana pool, so every turret placement, spell, and pickup had to resolve consistently for both players in real time without desync or VR-breaking latency.",
-        solution: "I built the networking on Netcode for GameObjects with server-authoritative state for shared resources like the mana pool, so neither client could drift out of sync. Scriptable Object architecture kept gameplay data decoupled from networked logic, which made it fast to iterate on turrets and weapons without touching netcode. Regular playtests with both roles active caught edge cases early."
+        solution: "I used Microsoft PlayFab to build the multiplayer feature, keeping shared resources like the mana pool in sync so neither player could drift out of state. A Scriptable Object architecture gave the game a scalable, designer-friendly structure, decoupling gameplay data from logic so turrets and weapons were fast to iterate on without touching core systems. Regular playtests with both roles active caught edge cases early."
       }
     },
     {
@@ -47,7 +48,7 @@ const PROJECTS = {
       genre: "Stealth",
       platform: ["PC"],
       roles: ["Lead Programmer", "Game Designer"],
-      skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoSystem"],
+      skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoRecognitionSystem"],
       links: {},
       screenshots: [
         "assets/screenshots/WhataFridge5.png",
@@ -125,6 +126,7 @@ const PROJECTS = {
       id: "atka-and-iku",
       title: "Atka and Iku",
       thumbnail: "assets/screenshots/Atka and Iku.png",
+      thumbnailPosition: "center 80%",
       screenshots: [
         "assets/screenshots/AtkIKu1.jpg",
         "assets/screenshots/AtkIKu2.jpg",
@@ -156,6 +158,7 @@ const PROJECTS = {
       id: "daylight-souls",
       title: "Daylight Souls",
       thumbnail: "assets/screenshots/DaylightSouls1.jpg",
+      thumbnailPosition: "center 20%",
       screenshots: [
         "assets/screenshots/Diebydaylight.png",
         "assets/screenshots/DaylightSouls2.jpg",
