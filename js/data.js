@@ -15,14 +15,14 @@ const PROJECTS = {
         "assets/screenshots/CrossworldChronicles1.jpg",
         "assets/screenshots/CrossworldChronicles6.jpg"
       ],
-      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time multiplayer powered by Microsoft PlayFab.",
+      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time networked co-op.",
       genre: "Co-op VR",
       platform: ["PC VR"],
       roles: ["Lead Developer"],
-      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#MicrosoftPlayFab", "#ScalableStructure", "#AzureDevOps"],
+      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Microsoft PlayFab", "#Scalable Structure", "#Azure DevOps"],
       links: {},
       detail: {
-        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice with real-time multiplayer powered by Microsoft PlayFab, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other.",
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other. The backend runs on Microsoft PlayFab, while the real-time gameplay stays in sync through an RPC layer built on a clean separation of data and logic.",
         contribution: [
           "Dual control systems for both Strategist and Explorer roles",
           "Full weapons and combat system",
@@ -34,8 +34,8 @@ const PROJECTS = {
           "Mentored developers on technical problems throughout the project",
           "Managed client feedback, expectations and delivery throughout"
         ],
-        challenge: "Keeping two completely different play experiences in sync over the network. The Strategist plays from an overhead view while the Explorer is in first-person VR, and both share one mana pool, so every turret placement, spell, and pickup had to resolve consistently for both players in real time without desync or VR-breaking latency.",
-        solution: "I used Microsoft PlayFab to build the multiplayer feature, keeping shared resources like the mana pool in sync so neither player could drift out of state. A Scriptable Object architecture gave the game a scalable, designer-friendly structure, decoupling gameplay data from logic so turrets and weapons were fast to iterate on without touching core systems. Regular playtests with both roles active caught edge cases early."
+        challenge: "The hardest part was synchronising state between the two players over the network, specifically getting the RPC layer right. Both players act on shared state in real time, so every action had to be sent and received reliably between clients. Any mistake in what got sent, or when, meant the two players would end up seeing different versions of the game.",
+        solution: "I separated data from logic. The RPCs only carry data between players, cleanly sent and received, without directly driving gameplay logic. Each client then runs that logic locally off the synced data, so no one player's actions can corrupt the game state on someone else's end."
       }
     },
     {
@@ -48,7 +48,7 @@ const PROJECTS = {
       genre: "Stealth",
       platform: ["PC"],
       roles: ["Lead Programmer", "Game Designer"],
-      skills: ["#Unity", "#C#", "#AI", "#StealthSystem", "#PhotoRecognitionSystem"],
+      skills: ["#Unity", "#C#", "#AI", "#Stealth System", "#Photo Recognition System"],
       links: {},
       screenshots: [
         "assets/screenshots/WhataFridge5.png",
@@ -82,7 +82,7 @@ const PROJECTS = {
       genre: "Action",
       platform: ["PC"],
       roles: ["Gameplay Programmer", "VFX Artist"],
-      skills: ["#Unity", "#C#", "#VFX", "#ShaderGraph", "#CombatDesign"],
+      skills: ["#Unity", "#C#", "#VFX", "#Shader Graph", "#Combat Design", "#Shape Validation"],
       links: {},
       detail: {
         overview: "An action game built around chaining rune spells together for big kinetic combos. You're pitted against hordes of enemies and your job is to find the combo that feels the most satisfying to pull off.",
@@ -90,8 +90,8 @@ const PROJECTS = {
           "Enemy AI with per-type combat abilities that adapt to player behaviour",
           "Full VFX pipeline from particle systems to shader-driven effects"
         ],
-        challenge: "Making combos feel kinetic rather than just functional. Chaining rune spells had to look and feel impactful, but early versions read as visually flat, and enemies that ignored player behavior made every fight play out the same way.",
-        solution: "I built the VFX pipeline end to end, from particle systems to shader-driven effects in ShaderGraph and VFX Graph, tuning timing and feedback until combos landed with weight. On the AI side, behaviour trees gave each enemy type combat abilities that adapt to how the player fights, so combos have to be chosen, not memorized."
+        challenge: "Spells are cast by drawing shapes, and most spells are a sequence of several shapes rather than just one. The challenge was building a drawing validation system that could measure how accurately a player drew each shape, then match that sequence against a spell recipe to work out which spell they were casting. It had to be precise enough to tell similar shapes apart, but forgiving enough that a hand-drawn shape never has to be perfect.",
+        solution: "I built a tool that generates pivot points along the player's stroke as they draw, then compares those pivots against the pivots of each standard shape. To handle the fact that no one draws a shape perfectly, each standard pivot creates a small tolerance circle around itself, and if the player's matching pivot lands inside that circle it counts as correct. On top of that, I recorded a large set of real, imperfectly drawn shapes, each stored with its pivot vector values as list data. When the game validates a drawing, it compares against that library and returns the closest match, so a messy but recognisable shape still resolves to the right spell."
       }
     },
     {
@@ -104,22 +104,21 @@ const PROJECTS = {
         "assets/screenshots/SquishySquid4.png",
         "assets/screenshots/SquishySquid1.png"
       ],
-      summary: "A fully solo-developed game. A hungry squid navigating underwater hazards with hand-crafted art, sound, animations and physics.",
+      summary: "A fully solo-developed game. A hungry squid navigating underwater hazards, with a hand-drawn character, animation clips and a custom physics system.",
       genre: "Action",
       platform: ["PC"],
       roles: ["Solo Developer"],
-      skills: ["#Unity", "#C#", "#ProceduralAnimation", "#SoundDesign", "#Physics"],
+      skills: ["#Unity", "#C#", "#Momentum System", "#2D Animation", "#Physics"],
       links: {},
       detail: {
-        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. Art, sound effects, animations and game logic were all built from scratch.",
+        overview: "A physics-driven game where you pilot a squishy squid through ocean environments, eating everything in your path. The main character, all animation clips, and the game logic were built from scratch.",
         contribution: [
           "Gameplay systems and physics-based movement",
-          "Procedural tentacle animation",
-          "Original sound design and music",
-          "All visual art assets"
+          "Custom momentum and bounce system",
+          "Hand-drawn main character and all animation clips"
         ],
-        challenge: "Making a physics-driven squid feel alive. Hand-animating tentacles would never react believably to movement and collisions, and as a solo project every discipline (art, sound, animation, code) was on me.",
-        solution: "I wrote a procedural tentacle animation system driven by the physics simulation itself, so the tentacles trail, squash, and react naturally to whatever the player does. Building all the art, sound, and music myself kept the whole game tonally consistent from a single vision."
+        challenge: "The core of the game is the squid bouncing around the aquarium, and it has to keep its momentum as it bounces instead of bleeding off speed. That made the momentum calculation the most important system in the whole game. Unity's built-in physics wasn't stable enough to give consistent, believable bounces, so I couldn't rely on it for the feel I needed.",
+        solution: "I built my own momentum system using Newton's third law as the reference, modelling each bounce the way a ball actually rebounds off a surface in reality. Handling the momentum myself instead of leaning on Unity's physics meant the squid reacts consistently and keeps its speed through every bounce, so the movement stays predictable and feels right."
       }
     },
     {
@@ -140,48 +139,18 @@ const PROJECTS = {
       genre: "Platformer",
       platform: ["PC"],
       roles: ["Lead Game Designer", "Level Designer", "Programmer"],
-      skills: ["#Unity", "#C#", "#LevelDesign", "#PrecisionPlatformer", "#Narrative"],
+      skills: ["#Unity", "#C#", "#Level Design", "#Coyote Time"],
       links: {},
       detail: {
-        overview: "A 2D precise platformer set in a mythological arctic world. Two spirits, tight movement mechanics, and an emotional story running through it all. With special jumping mechanics, players get a brand new experience compared to a general platformer.",
+        overview: "A 2D precise platformer set in a mythological arctic world. Players aim at the right position to trigger a movement boost, and a resource system limits how much fire they can shoot, which pushes them to strategise before acting rather than moving on instinct.",
         contribution: [
           "Animation system design and development",
           "Led game design across the project",
           "Custom character controller built for a precise, responsive feel",
           "All levels designed with increasing complexity"
         ],
-        challenge: "Precision platformers live or die on game feel. The special jumping mechanics had to feel responsive and exact, without the floatiness that default physics gives you, and the levels had to teach those mechanics and tell an emotional story without a single line of dialogue.",
-        solution: "I built a custom character controller from scratch, tuning acceleration, jump arcs, and input buffering until movement felt precise and readable. Levels were designed to ramp in complexity, introducing each mechanic in a safe space before testing it, using layout and visual language alone to guide players through the story."
-      }
-    },
-    {
-      id: "daylight-souls",
-      title: "Daylight Souls",
-      thumbnail: "assets/screenshots/DaylightSouls1.jpg",
-      thumbnailPosition: "center 20%",
-      screenshots: [
-        "assets/screenshots/Diebydaylight.png",
-        "assets/screenshots/DaylightSouls2.jpg",
-        "assets/screenshots/DaylightSouls3.jpg",
-        "assets/screenshots/DaylightSouls4.jpg",
-        "assets/screenshots/DaylightSouls5.jpg",
-        "assets/screenshots/DaylightSouls6.jpg"
-      ],
-      summary: "A 2D roguelite Souls-like where players decide the attacking pattern of the boss.",
-      genre: "Action",
-      platform: ["PC"],
-      roles: ["Systems Designer", "Programmer", "UI/UX Designer"],
-      skills: ["#Unity", "#C#", "#SoulsLike", "#Roguelite", "#UIDesign", "#BossDesign"],
-      links: {},
-      detail: {
-        overview: "Daylight Souls follows the formula of a hardcore Souls-like game, but instead of just learning a boss's attacking pattern, players can actually choose each individual move the boss will perform. With more control over the boss's behavior, players have more room to build strategies and counter enemies on their own terms.",
-        contribution: [
-          "Combat system design and development",
-          "Random attacking pattern system",
-          "UI system"
-        ],
-        challenge: "Letting players choose the boss's attacks without killing the challenge. If players control the boss's moveset, the obvious risk is that they just pick whatever is easiest to dodge and the Souls-like tension disappears.",
-        solution: "I designed the combat system so that choosing attack patterns is a strategic trade-off rather than a difficulty dial, and layered a randomized roguelite structure on top so no two runs resolve the same way. The result keeps the mastery loop of a Souls-like while giving players real agency over the fight."
+        challenge: "The biggest challenge was how jumping felt between platforms. Players naturally want to get as close to the edge as possible before leaping, so they often press jump a fraction of a second after they have already left the platform. But the game constantly runs a ground check to decide whether a jump is allowed, so those slightly late presses were being rejected, and the movement felt unresponsive and punishing.",
+        solution: "I added coyote time: a short grace window right after the player leaves a platform during which a jump still counts, even though they are technically no longer on the ground. That small buffer makes those slightly late presses register the way players expect, so the character feels far more responsive and under their control."
       }
     }
   ],
@@ -198,7 +167,7 @@ const PROJECTS = {
       genre: "Level Design",
       platform: ["PC"],
       roles: ["Level Designer"],
-      skills: ["#GarrysMod", "#Hammer", "#LevelDesign", "#FPS", "#SpaceDesign"],
+      skills: ["#Garrys Mod", "#Hammer", "#Level Design", "#FPS", "#Space Design"],
       links: {},
       detail: {
         overview: "A multiplayer deathmatch map for Garry's Mod set in a dense woodland clearing with a central fort. Built to encourage diverse combat scenarios across different play styles.",
