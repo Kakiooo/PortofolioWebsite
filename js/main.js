@@ -50,13 +50,13 @@ const App = (() => {
     if (!filter || filter === "levelDesign") items = items.concat(PROJECTS.levelDesign.map(p => ({ ...p, category: "levelDesign" })));
     if (!filter || filter === "applications") items = items.concat(PROJECTS.applications.map(p => ({ ...p, category: "applications" })));
 
-    // Cross-listed projects: shown under an extra filter, but not duplicated in the "All" view
+    // Cross-listed projects: shown first under an extra filter, but not duplicated in the "All" view
     if (filter) {
       const already = new Set(items.map(p => p.id));
       const crossListed = [...PROJECTS.games, ...PROJECTS.levelDesign, ...PROJECTS.applications]
         .filter(p => p.extraCategories?.includes(filter) && !already.has(p.id))
         .map(p => ({ ...p, category: filter }));
-      items = items.concat(crossListed);
+      items = crossListed.concat(items);
     }
 
     container.innerHTML = items.map(p => `
