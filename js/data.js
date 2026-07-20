@@ -72,8 +72,15 @@ const PROJECTS = {
     {
       id: "grapple-runner",
       title: "Grapple Runner",
-      thumbnail: "assets/screenshots/GrappleRunnerThumb.jpg",
+      thumbnail: "assets/screenshots/GrappleRunner5.jpg",
       video: "assets/Video/GrappleRunnerTrailer.mp4",
+      screenshots: [
+        "assets/screenshots/GrappleRunner5.jpg",
+        "assets/screenshots/GrappleRunner2.jpg",
+        "assets/screenshots/GrappleRunner3.jpg",
+        "assets/screenshots/GrappleRunner1.jpg",
+        "assets/screenshots/GrappleRunner4.jpg"
+      ],
       summary: "A first-person parkour game focused on fluid movement, combining a grappling hook with wall-running into one continuous flow.",
       genre: "Parkour FPS",
       platform: ["PC"],
