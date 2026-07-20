@@ -70,6 +70,29 @@ const PROJECTS = {
       }
     },
     {
+      id: "grapple-runner",
+      title: "Grapple Runner",
+      thumbnail: "assets/screenshots/GrappleRunnerThumb.jpg",
+      video: "assets/Video/GrappleRunnerTrailer.mp4",
+      summary: "A first-person parkour game focused on fluid movement, combining a grappling hook with wall-running into one continuous flow.",
+      genre: "Parkour FPS",
+      platform: ["PC"],
+      roles: ["Game Developer", "Level Designer"],
+      skills: ["#Unreal", "#C++", "#Level Design", "#Momentum System"],
+      extraCategories: ["levelDesign"],
+      links: {},
+      detail: {
+        overview: "Grapple Runner is a first-person parkour game built to give players a fluid, continuous sense of movement by combining a grappling hook with wall-running. I handled the level design and the movement programming, polishing the wall-running and grapple mechanics with a momentum system that actively tracks the player's speed and feeds it into each type of movement.",
+        contribution: [
+          "First-person movement programming: grapple and wall-running",
+          "Momentum system that tracks player speed and applies it across movement types",
+          "Level design built around the movement mechanics"
+        ],
+        challenge: "The hardest mechanic to get right was wall-running. Because momentum kept stacking while the player was on the wall, their speed would climb to an insane level, to the point where the character became almost impossible to control.",
+        solution: "I solved it by actively tracking momentum and recalculating it whenever the player's actions or state changed, instead of letting speed accumulate unchecked. Tying the momentum value to those state changes kept movement fast but controllable, which also made the levels far easier to design around."
+      }
+    },
+    {
       id: "runekinetic",
       title: "Runekinetic",
       thumbnail: "assets/screenshots/Runekinetic0.gif",
