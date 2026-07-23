@@ -15,14 +15,14 @@ const PROJECTS = {
         "assets/screenshots/CrossworldChronicles1.jpg",
         "assets/screenshots/CrossworldChronicles6.jpg"
       ],
-      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time networked co-op.",
-      genre: "Co-op VR",
+      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time networked multiplayer.",
+      genre: "Multiplayer VR",
       platform: ["PC VR"],
       roles: ["Lead Developer"],
       skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Microsoft PlayFab", "#Scalable Structure", "#Azure DevOps"],
       links: {},
       detail: {
-        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. Built in Unity as a vertical slice, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other. The backend runs on Microsoft PlayFab, while the real-time gameplay stays in sync through an RPC layer built on a clean separation of data and logic.",
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. at the Centre for Digital Media. Built in Unity as a vertical slice, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other. The backend runs on Microsoft PlayFab, while the real-time gameplay stays in sync through an RPC layer built on a clean separation of data and logic.",
         contribution: [
           "Dual control systems for both Strategist and Explorer roles",
           "Full weapons and combat system",
