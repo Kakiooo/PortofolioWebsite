@@ -213,7 +213,37 @@ const PROJECTS = {
       }
     }
   ],
-  applications: []
+  applications: [],
+  tools: [
+    {
+      id: "vfx-workbench",
+      title: "VFX Workbench",
+      thumbnail: "assets/screenshots/VFXWorkbenchThumb.png",
+      video: "assets/Video/VFXWorkbenchDemo.mp4",
+      screenshots: [
+        "assets/screenshots/VFXWorkbench1.png",
+        "assets/screenshots/VFXWorkbench2.png",
+        "assets/screenshots/VFXWorkbench4.png",
+        "assets/screenshots/VFXWorkbench5.png",
+        "assets/screenshots/VFXWorkbench3.png"
+      ],
+      summary: "A Unity editor tool that smooths out the VFX implementation pipeline, letting artists break down, preview, scrub and edit particle systems without ever placing them in the scene.",
+      genre: "Editor Tool",
+      platform: ["Unity Editor"],
+      roles: ["Technical Artist"],
+      skills: ["#Unity", "#C#", "#Unity Editor Scripting", "#VFX"],
+      links: {},
+      detail: {
+        overview: "VFX Workbench is a Unity editor tool built to make implementing VFX less painful. Assign a particle system prefab and the window breaks it down into every sub particle system, each one toggleable on or off directly in the tool. A built-in preview means you never have to drag an effect into the scene just to look at it, and a stage slider with replay lets you inspect any point in the effect's lifetime. Any particle system can be edited in place, and when the tweaks are done you export a new prefab, leaving the original untouched.",
+        contribution: [
+          "Built the entire tool solo, from the editor window and UI to the preview rendering and prefab export",
+          "Came out of my own frustration with Unity requiring effects to be placed in the scene just to observe them"
+        ],
+        challenge: "The hardest part was stage viewing. Unity's particle systems are built to play forward in real time, so there is no direct way to hold an effect at an arbitrary point in its lifetime, which is exactly what you need when you are tuning timing and want to study one specific moment.",
+        solution: "I made the editor render the preview at a specific tick on the effect's timeline, rather than letting the particle system play through in real time. When a developer wants to see the effect running continuously, the tool steps through successive ticks along the timeline, resetting the system between each one instead of playing straight through to the end. That makes any stage of the effect directly addressable, so you can hold on a single moment or scrub across the whole lifetime."
+      }
+    }
+  ]
 };
 
 const SKILLS = [

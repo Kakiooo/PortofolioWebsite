@@ -46,6 +46,7 @@ const App = (() => {
     if (!container) return;
 
     let items = [];
+    if (!filter || filter === "tools")        items = items.concat(PROJECTS.tools.map(p => ({ ...p, category: "tools" })));
     if (!filter || filter === "games")       items = items.concat(PROJECTS.games.map(p => ({ ...p, category: "games" })));
     if (!filter || filter === "levelDesign") items = items.concat(PROJECTS.levelDesign.map(p => ({ ...p, category: "levelDesign" })));
     if (!filter || filter === "applications") items = items.concat(PROJECTS.applications.map(p => ({ ...p, category: "applications" })));
@@ -53,7 +54,7 @@ const App = (() => {
     // Cross-listed projects: shown first under an extra filter, but not duplicated in the "All" view
     if (filter) {
       const already = new Set(items.map(p => p.id));
-      const crossListed = [...PROJECTS.games, ...PROJECTS.levelDesign, ...PROJECTS.applications]
+      const crossListed = [...PROJECTS.games, ...PROJECTS.levelDesign, ...PROJECTS.applications, ...PROJECTS.tools]
         .filter(p => p.extraCategories?.includes(filter) && !already.has(p.id))
         .map(p => ({ ...p, category: filter }));
       items = crossListed.concat(items);
@@ -93,7 +94,7 @@ const App = (() => {
 
   // ── Project Detail ───────────────────────────────────────────────────────
   function findProject(id) {
-    for (const key of ["games", "levelDesign", "applications"]) {
+    for (const key of ["games", "levelDesign", "applications", "tools"]) {
       const found = PROJECTS[key].find(p => p.id === id);
       if (found) return found;
     }
