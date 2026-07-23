@@ -162,16 +162,6 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
 .hero-name { display: flex; flex-direction: column; }
 .hero-line { font-size: clamp(3rem, 8vw, 5.2rem); }
 
-.hero-avatar {
-  width: 210px;
-  height: 210px;
-  border: var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
 .home-intro { max-width: 62ch; margin-bottom: 2.6rem; }
 .intro-text { margin-bottom: 0.9rem; }
 
@@ -972,8 +962,7 @@ a:focus-visible, button:focus-visible, .nav-link:focus-visible,
 }
 
 @media (max-width: 480px) {
-  .hero-identity { flex-direction: column-reverse; align-items: flex-start; }
-  .hero-avatar { width: 160px; height: 160px; }
+  .hero-identity { align-items: flex-start; }
   #projects-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .screenshot-grid { grid-template-columns: 1fr; }
   .filter-tab { flex: 1; text-align: center; padding: 0.55rem 0.6rem; }
