@@ -110,11 +110,7 @@ const App = (() => {
       <div class="detail-back">
         <button class="btn-back" id="btn-back">← Back</button>
       </div>
-      <div class="detail-hero">
-        <div class="detail-thumb${p.thumbnailContain ? ' thumb-contain' : ''}" style="--thumb-src: url('${p.thumbnail}')">
-          <img src="${p.thumbnail}" alt="${p.title}" style="${p.thumbnailPosition ? `object-position:${p.thumbnailPosition};` : ''}${p.thumbnailPad ? `padding:${p.thumbnailPad};` : ''}" onerror="this.parentElement.classList.add('no-thumb')">
-          <div class="thumb-placeholder large"><span>${p.title[0]}</span></div>
-        </div>
+      <div class="detail-hero${p.video ? ' has-trailer' : ''}">
         <div class="detail-header">
           <div class="detail-role">
             <span class="detail-role-eyebrow">Role</span>
@@ -123,50 +119,52 @@ const App = (() => {
           <h1 class="detail-title">${p.title}</h1>
           <div class="detail-genre">${p.genre}</div>
           <p class="detail-summary">${p.summary}</p>
+          <div class="detail-skills detail-skills-hero">
+            ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
+          </div>
           <div class="detail-meta">
             <span class="meta-label">Platform:</span>
             ${p.platform.map(pl => `<span class="meta-value">${pl}</span>`).join("")}
           </div>
         </div>
-      </div>
-      <div class="detail-body">
-        <div class="detail-block">
-          <h2>Overview</h2>
-          <p>${p.detail.overview}</p>
-          <div class="detail-skills">
-            ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
-          </div>
-        </div>
-        <div class="detail-block">
-          <h2>My Contribution</h2>
-          <div class="role-chips">
-            ${p.roles.map(r => `<span class="role-chip">${r}</span>`).join("")}
-          </div>
-          ${Array.isArray(p.detail.contribution)
-            ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
-            : `<p>${p.detail.contribution}</p>`
-          }
-        </div>
-        ${p.detail.challenge ? `
-        <div class="detail-block">
-          <h2>Biggest Challenge</h2>
-          <p>${p.detail.challenge}</p>
-        </div>
-        ` : ""}
-        ${p.detail.solution ? `
-        <div class="detail-block">
-          <h2>How I Solved It</h2>
-          <p>${p.detail.solution}</p>
-        </div>
-        ` : ""}
         ${p.video ? `
-        <div class="detail-block detail-video-block">
-          <h2>Trailer</h2>
+        <div class="detail-hero-trailer">
           <video class="detail-video" controls preload="metadata" playsinline>
             <source src="${p.video}" type="video/mp4">
           </video>
         </div>
         ` : ""}
+      </div>
+      <div class="detail-body">
+        <div class="detail-text-grid">
+          <div class="detail-col detail-col-left">
+            <div class="detail-block">
+              <h2>Overview</h2>
+              <p>${p.detail.overview}</p>
+            </div>
+            <div class="detail-block">
+              <h2>My Contribution</h2>
+              ${Array.isArray(p.detail.contribution)
+                ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
+                : `<p>${p.detail.contribution}</p>`
+              }
+            </div>
+          </div>
+          <div class="detail-col detail-col-right">
+            ${p.detail.challenge ? `
+            <div class="detail-block">
+              <h2>Biggest Challenge</h2>
+              <p>${p.detail.challenge}</p>
+            </div>
+            ` : ""}
+            ${p.detail.solution ? `
+            <div class="detail-block">
+              <h2>How I Solved It</h2>
+              <p>${p.detail.solution}</p>
+            </div>
+            ` : ""}
+          </div>
+        </div>
         ${p.screenshots?.length ? `
         <div class="detail-block">
           <h2>Screenshots</h2>
