@@ -492,7 +492,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   padding: 2rem 2.8rem 2.6rem;
 }
 
-.detail-back { margin-bottom: 1.4rem; }
+.detail-back { margin-bottom: 2.6rem; }
 
 .btn-back {
   font-family: var(--font-body);
@@ -512,12 +512,12 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
 
 .detail-hero {
   margin-bottom: 2rem;
-  padding-bottom: 1.6rem;
+  padding-bottom: 1.1rem;
   border-bottom: var(--border);
 }
 .detail-hero.has-trailer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
   gap: 2.6rem;
   align-items: start;
 }
@@ -591,7 +591,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   line-height: 1.15;
   color: var(--ink);
 }
-.detail-summary { color: var(--muted); margin-bottom: 1rem; }
+.detail-summary { color: var(--muted); margin-bottom: 1rem; max-width: 54ch; }
 
 .detail-meta {
   display: flex;
