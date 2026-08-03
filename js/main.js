@@ -105,12 +105,17 @@ const App = (() => {
     const p = findProject(id);
     if (!p) return;
 
+    // Combined media: trailer first (if any), then screenshots
+    const media = [];
+    if (p.video) media.push({ type: "video", src: p.video });
+    (p.screenshots || []).forEach(s => media.push({ type: "image", src: s }));
+
     const section = document.getElementById("section-project-detail");
     section.innerHTML = `
       <div class="detail-back">
         <button class="btn-back" id="btn-back">← Back</button>
       </div>
-      <div class="detail-hero${p.video ? ' has-trailer' : ''}">
+      <div class="detail-hero${media.length ? ' has-media' : ''}">
         <div class="detail-header">
           <div class="detail-role">
             <span class="detail-role-eyebrow">Role</span>
@@ -127,11 +132,29 @@ const App = (() => {
             ${p.platform.map(pl => `<span class="meta-value">${pl}</span>`).join("")}
           </div>
         </div>
-        ${p.video ? `
-        <div class="detail-hero-trailer">
-          <video class="detail-video" controls preload="metadata" playsinline>
-            <source src="${p.video}" type="video/mp4">
-          </video>
+        ${media.length ? `
+        <div class="detail-media">
+          <div class="media-gallery">
+            <div class="media-stage">
+              <div class="media-stage-inner" id="media-stage-inner"></div>
+              ${media.length > 1 ? `
+              <button class="media-arrow media-prev" aria-label="Previous">&#8592;</button>
+              <button class="media-arrow media-next" aria-label="Next">&#8594;</button>
+              <div class="media-counter"><span id="media-current">1</span> / ${media.length}</div>
+              ` : ""}
+            </div>
+            ${media.length > 1 ? `
+            <div class="media-strip">
+              ${media.map((m, i) => `
+                <button class="media-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Media ${i + 1}">
+                  ${m.type === "video"
+                    ? `<span class="media-thumb-video"><span class="media-play">&#9654;</span></span>`
+                    : `<img src="${m.src}" alt="">`}
+                </button>
+              `).join("")}
+            </div>
+            ` : ""}
+          </div>
         </div>
         ` : ""}
       </div>
@@ -165,18 +188,6 @@ const App = (() => {
             ` : ""}
           </div>
         </div>
-        ${p.screenshots?.length ? `
-        <div class="detail-block">
-          <h2>Screenshots</h2>
-          <div class="screenshot-grid">
-            ${p.screenshots.map((src, i) => `
-              <button class="screenshot-thumb" data-index="${i}" aria-label="View screenshot ${i + 1}">
-                <img src="${src}" alt="Screenshot ${i + 1}">
-              </button>
-            `).join("")}
-          </div>
-        </div>
-        ` : ""}
       </div>
     `;
 
@@ -185,14 +196,40 @@ const App = (() => {
       closeProjectDetail();
     });
 
-    // Screenshot gallery click handlers
-    if (p.screenshots?.length) {
-      section.querySelectorAll(".screenshot-thumb").forEach(thumb => {
-        thumb.addEventListener("click", (e) => {
+    // Media gallery: one stage cycling video + screenshots
+    if (media.length) {
+      const stage = section.querySelector("#media-stage-inner");
+      const counter = section.querySelector("#media-current");
+      const thumbs = section.querySelectorAll(".media-thumb");
+      const images = media.filter(m => m.type === "image").map(m => m.src);
+      let idx = 0;
+
+      function show(i) {
+        idx = (i + media.length) % media.length;
+        const m = media[idx];
+        stage.innerHTML = m.type === "video"
+          ? `<video class="media-video" controls preload="metadata" playsinline><source src="${m.src}" type="video/mp4"></video>`
+          : `<img class="media-image" src="${m.src}" alt="">`;
+        if (counter) counter.textContent = idx + 1;
+        thumbs.forEach((t, j) => t.classList.toggle("active", j === idx));
+        const active = thumbs[idx];
+        if (active) active.scrollIntoView({ block: "nearest", inline: "nearest" });
+      }
+
+      section.querySelector(".media-prev")?.addEventListener("click", (e) => { e.stopPropagation(); show(idx - 1); });
+      section.querySelector(".media-next")?.addEventListener("click", (e) => { e.stopPropagation(); show(idx + 1); });
+      thumbs.forEach(t => t.addEventListener("click", (e) => { e.stopPropagation(); show(parseInt(t.dataset.index)); }));
+
+      // Click a screenshot in the stage to open it fullscreen in the lightbox
+      stage.addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG" && images.length) {
           e.stopPropagation();
-          LIGHTBOX.open(p.screenshots, parseInt(thumb.dataset.index));
-        });
+          const imgIdx = images.indexOf(media[idx].src);
+          LIGHTBOX.open(images, imgIdx < 0 ? 0 : imgIdx);
+        }
       });
+
+      show(0);
     }
 
     document.getElementById("project-detail-overlay").scrollTop = 0;

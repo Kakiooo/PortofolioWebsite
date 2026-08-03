@@ -170,7 +170,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   margin-bottom: 2.6rem;
 }
 .home-top .hero-section { margin-bottom: 0; }
-.home-top .home-intro { max-width: 90ch; margin-bottom: 0; padding-top: 0.4rem; }
+.home-top .home-intro { max-width: 90ch; margin-bottom: 0; padding-top: 1rem; }
 .intro-eyebrow {
   display: inline-block;
   font-family: var(--font-mono);
@@ -474,7 +474,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   padding: 1.5rem 1.5rem 2rem;
 }
 #project-detail-overlay.overlay-open {
-  display: block;
+  display: flex;
   animation: overlayIn 0.22s ease;
 }
 @keyframes overlayIn {
@@ -484,7 +484,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
 
 #section-project-detail {
   max-width: min(1720px, 95vw);
-  margin: 0 auto;
+  margin: auto;
   background: var(--paper);
   border: var(--border-th);
   border-radius: var(--radius-lg);
@@ -515,21 +515,99 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   padding-bottom: 1.1rem;
   border-bottom: var(--border);
 }
-.detail-hero.has-trailer {
+.detail-hero.has-media {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
   gap: 2.6rem;
   align-items: start;
 }
 
 .detail-header { min-width: 0; max-width: 900px; }
-.detail-hero.has-trailer .detail-header { max-width: none; }
+.detail-hero.has-media .detail-header { max-width: none; }
+.detail-media { min-width: 0; margin-bottom: 0.8rem; }
 .detail-skills-hero { margin: 0.9rem 0 1.1rem; }
 
-.detail-hero-trailer .detail-video {
-  max-height: none;
+/* ── Media gallery (video + screenshots in one stage) ─────────────────────── */
+.media-gallery { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.media-stage {
+  position: relative;
   aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
+.media-stage-inner { width: 100%; height: 100%; }
+.media-stage-inner .media-video { width: 100%; height: 100%; display: block; background: var(--ink); }
+.media-stage-inner .media-image {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: var(--ink);
+  cursor: zoom-in;
+}
+
+.media-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  cursor: pointer;
+  z-index: 2;
+  transition: background var(--transition);
+}
+.media-arrow:hover { background: var(--amber); }
+.media-prev { left: 0.7rem; }
+.media-next { right: 0.7rem; }
+
+.media-counter {
+  position: absolute;
+  bottom: 0.7rem; right: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--amber);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  z-index: 2;
+}
+
+.media-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
+}
+.media-thumb {
+  flex: 0 0 auto;
+  width: 88px; height: 56px;
+  padding: 0;
+  background: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.media-thumb:hover { opacity: 1; }
+.media-thumb.active { opacity: 1; box-shadow: 0 0 0 3px var(--amber); }
+.media-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media-thumb-video {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink);
+}
+.media-play { color: var(--paper); font-size: 1.1rem; }
 
 .detail-thumb-window {
   border: var(--border);
@@ -977,7 +1055,7 @@ a:focus-visible, button:focus-visible, .nav-link:focus-visible,
   .home-top { grid-template-columns: 1fr; gap: 1.2rem; margin-bottom: 2rem; }
   .home-top .home-intro { padding-top: 0; }
   .detail-hero { grid-template-columns: 1fr; }
-  .detail-hero.has-trailer { grid-template-columns: 1fr; }
+  .detail-hero.has-media { grid-template-columns: 1fr; }
   .detail-text-grid { grid-template-columns: 1fr; }
   .screenshot-grid { grid-template-columns: repeat(2, 1fr); }
 }
