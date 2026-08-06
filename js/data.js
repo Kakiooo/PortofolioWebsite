@@ -6,7 +6,8 @@ const PROJECTS = {
       thumbnail: "assets/screenshots/CrossworldChronicleLogo.png",
       thumbnailContain: true,
       thumbnailPad: "0.2rem",
-      video: "assets/Video/CrossworldChronicleTrailer_c.mp4",
+      video: "",
+      youtubeId: "GJr4T5UpWUM",
       screenshots: [
         "assets/screenshots/CrossworldChronicles2.jpg",
         "assets/screenshots/crossworldChronicles3.jpg",
@@ -42,7 +43,8 @@ const PROJECTS = {
       id: "kaiju-corp",
       title: "Kaiju Corp",
       thumbnail: "assets/screenshots/KaijuCorpThumb.jpg",
-      video: "assets/Video/KaijuCorpTrailer.mp4",
+      video: "",
+      youtubeId: "vqeblNzdrPg",
       screenshots: [
         { src: "assets/screenshots/KaijuCorp1.jpg", caption: "Unique momentum-driven player movement" },
         { src: "assets/screenshots/KaijuCorp2.jpg", caption: "Jetpack system" },

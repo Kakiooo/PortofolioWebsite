@@ -107,7 +107,8 @@ const App = (() => {
 
     // Combined media: trailer first (if any), then screenshots
     const media = [];
-    if (p.video) media.push({ type: "video", src: p.video });
+    if (p.youtubeId) media.push({ type: "youtube", id: p.youtubeId });
+    else if (p.video) media.push({ type: "video", src: p.video });
     (p.screenshots || []).forEach(s => {
       if (typeof s === "string") media.push({ type: "image", src: s });
       else media.push({ type: "image", src: s.src, caption: s.caption });
@@ -151,7 +152,7 @@ const App = (() => {
             <div class="media-strip">
               ${media.map((m, i) => `
                 <button class="media-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Media ${i + 1}">
-                  ${m.type === "video"
+                  ${m.type === "video" || m.type === "youtube"
                     ? `<span class="media-thumb-video"><span class="media-play">&#9654;</span></span>`
                     : `<img src="${m.src}" alt="">`}
                 </button>
@@ -225,6 +226,8 @@ const App = (() => {
         const m = media[idx];
         stage.innerHTML = m.type === "video"
           ? `<video class="media-video" controls preload="metadata" playsinline><source src="${m.src}" type="video/mp4"></video>`
+          : m.type === "youtube"
+          ? `<iframe class="media-youtube" src="https://www.youtube.com/embed/${m.id}?rel=0" title="YouTube trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
           : `<img class="media-image" src="${m.src}" alt="">`;
         if (counter) counter.textContent = idx + 1;
         if (captionEl) {
