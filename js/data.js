@@ -43,6 +43,15 @@ const PROJECTS = {
       title: "Kaiju Corp",
       thumbnail: "assets/screenshots/KaijuCorpThumb.jpg",
       video: "assets/Video/KaijuCorpTrailer.mp4",
+      screenshots: [
+        { src: "assets/screenshots/KaijuCorp1.jpg", caption: "Unique momentum-driven player movement" },
+        { src: "assets/screenshots/KaijuCorp2.jpg", caption: "Jetpack system" },
+        { src: "assets/screenshots/KaijuCorp3.jpg", caption: "Weapon system, with multiple weapon options" },
+        { src: "assets/screenshots/KaijuCorp4.jpg", caption: "Weapon system" },
+        { src: "assets/screenshots/KaijuCorp5.jpg", caption: "Weapon system" },
+        { src: "assets/screenshots/KaijuCorp6.jpg", caption: "Weapon system" },
+        { src: "assets/screenshots/KaijuCorp7.jpg", caption: "VR Kaiju grab interaction with a PC player" }
+      ],
       summary: "A cross-platform multiplayer game built with Photon Fusion, taken from concept to a fully playable build by a four-person team in under three months. I owned the PC player experience.",
       genre: "Cross-platform Multiplayer",
       platform: ["PC", "Cross-platform"],
@@ -58,7 +67,9 @@ const PROJECTS = {
           "UI implementation for the PC build",
           "Networking for PC players over Photon Fusion",
           "Custom Unity tool to streamline the art implementation pipeline"
-        ]
+        ],
+        challenge: "A lot of the visual effects were hard to observe or edit. My teammate and I lost hours previewing particle systems by manually toggling each child object under the VFX group on and off, and Unity's built-in preview cannot stop at a specific frame, which made it painful to check whether a change had actually landed on the exact moment we cared about.",
+        solution: "I considered living with it or buying a preview package from the Asset Store, but those only preview VFX without letting you edit them, so I would still have been switching windows constantly, and paying for an asset on a student project was hard to justify. Building a tool would cost development days we did not have, but the manual clicking was costing us more. So I built a custom editor window that previews any frame and holds there, steps backwards, exposes the sub particle systems so you can edit or toggle them in place, and exports as a new prefab that leaves the original untouched. That tool became <a href=\"#project-vfx-workbench\" data-project-id=\"vfx-workbench\" class=\"detail-link\">VFX Workbench</a>. Looking back, cutting features like a customised anchor and background to ship fast was the right call, but if I did it again I would ask my teammate what he needed first, because the first version was designed around my own workflow."
       }
     },
     {

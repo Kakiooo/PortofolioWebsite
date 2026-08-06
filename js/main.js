@@ -108,7 +108,10 @@ const App = (() => {
     // Combined media: trailer first (if any), then screenshots
     const media = [];
     if (p.video) media.push({ type: "video", src: p.video });
-    (p.screenshots || []).forEach(s => media.push({ type: "image", src: s }));
+    (p.screenshots || []).forEach(s => {
+      if (typeof s === "string") media.push({ type: "image", src: s });
+      else media.push({ type: "image", src: s.src, caption: s.caption });
+    });
 
     const section = document.getElementById("section-project-detail");
     section.innerHTML = `
@@ -143,6 +146,7 @@ const App = (() => {
               <div class="media-counter"><span id="media-current">1</span> / ${media.length}</div>
               ` : ""}
             </div>
+            <div class="media-caption" id="media-caption"></div>
             ${media.length > 1 ? `
             <div class="media-strip">
               ${media.map((m, i) => `
@@ -197,9 +201,21 @@ const App = (() => {
     });
 
     // Media gallery: one stage cycling video + screenshots
+    // Cross-project links inside detail text
+    section.querySelectorAll("a.detail-link[data-project-id]").forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        renderProjectDetail(a.dataset.projectId);
+        const overlay = document.getElementById("project-detail-overlay");
+        if (overlay) overlay.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+      });
+    });
+
     if (media.length) {
       const stage = section.querySelector("#media-stage-inner");
       const counter = section.querySelector("#media-current");
+      const captionEl = section.querySelector("#media-caption");
       const thumbs = section.querySelectorAll(".media-thumb");
       const images = media.filter(m => m.type === "image").map(m => m.src);
       let idx = 0;
@@ -211,6 +227,10 @@ const App = (() => {
           ? `<video class="media-video" controls preload="metadata" playsinline><source src="${m.src}" type="video/mp4"></video>`
           : `<img class="media-image" src="${m.src}" alt="">`;
         if (counter) counter.textContent = idx + 1;
+        if (captionEl) {
+          captionEl.textContent = m.caption || "";
+          captionEl.style.display = m.caption ? "block" : "none";
+        }
         thumbs.forEach((t, j) => t.classList.toggle("active", j === idx));
         const active = thumbs[idx];
         if (active) active.scrollIntoView({ block: "nearest", inline: "nearest" });

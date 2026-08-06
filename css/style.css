@@ -587,6 +587,25 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   overflow-x: auto;
   padding-bottom: 0.3rem;
 }
+.media-caption {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 0.1rem 0.1rem 0.2rem;
+}
+
+.detail-link {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--amber);
+  transition: background var(--transition);
+  padding: 0 2px;
+}
+.detail-link:hover {
+  background: var(--amber);
+}
 .media-thumb {
   flex: 0 0 auto;
   width: 88px; height: 56px;
