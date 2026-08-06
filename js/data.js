@@ -39,6 +39,29 @@ const PROJECTS = {
       }
     },
     {
+      id: "kaiju-corp",
+      title: "Kaiju Corp",
+      thumbnail: "",
+      video: "assets/Video/KaijuCorpTrailer.mp4",
+      summary: "A cross-platform multiplayer game built with Photon Fusion, taken from concept to a fully playable build by a four-person team in under three months. I owned the PC player experience.",
+      genre: "Cross-platform Multiplayer",
+      platform: ["PC", "Cross-platform"],
+      roles: ["Developer"],
+      skills: ["#Unity", "#C#", "#Photon Fusion", "#Character Controller", "#Weapon System", "#Editor Tooling"],
+      links: {},
+      detail: {
+        overview: "Kaiju Corp is a cross-platform multiplayer game built with Photon Fusion. As one of a four-person team, we took it from concept to a fully playable build in under three months. I focused on the PC player experience: the Three Cs (character, camera and controls), the weapon system, UI implementation, and the networking that keeps PC players in sync. I also built a custom Unity tool to streamline the art implementation pipeline.",
+        contribution: [
+          "Built a unique, momentum-driven character movement system with networking implemented",
+          "PC player systems: the Three Cs of character, camera and controls",
+          "Weapon system for PC players",
+          "UI implementation for the PC build",
+          "Networking for PC players over Photon Fusion",
+          "Custom Unity tool to streamline the art implementation pipeline"
+        ]
+      }
+    },
+    {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
