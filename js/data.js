@@ -41,7 +41,7 @@ const PROJECTS = {
     {
       id: "kaiju-corp",
       title: "Kaiju Corp",
-      thumbnail: "",
+      thumbnail: "assets/screenshots/KaijuCorpThumb.jpg",
       video: "assets/Video/KaijuCorpTrailer.mp4",
       summary: "A cross-platform multiplayer game built with Photon Fusion, taken from concept to a fully playable build by a four-person team in under three months. I owned the PC player experience.",
       genre: "Cross-platform Multiplayer",
