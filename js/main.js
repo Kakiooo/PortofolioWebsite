@@ -105,9 +105,10 @@ const App = (() => {
     const p = findProject(id);
     if (!p) return;
 
-    // Combined media: trailer first (if any), then screenshots
+    // Combined media: trailer(s) first, then screenshots
     const media = [];
-    if (p.youtubeId) media.push({ type: "youtube", id: p.youtubeId });
+    if (Array.isArray(p.youtubeIds)) p.youtubeIds.forEach(id => media.push({ type: "youtube", id }));
+    else if (p.youtubeId) media.push({ type: "youtube", id: p.youtubeId });
     else if (p.video) media.push({ type: "video", src: p.video });
     (p.screenshots || []).forEach(s => {
       if (typeof s === "string") media.push({ type: "image", src: s });
