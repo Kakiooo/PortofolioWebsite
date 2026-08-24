@@ -161,16 +161,31 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
 
 .hero-name { display: flex; flex-direction: column; }
 .hero-line { font-size: clamp(3rem, 8vw, 5.2rem); }
+.hero-title {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  color: var(--ink);
+  background: var(--amber);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
 
 .home-top {
   display: grid;
-  grid-template-columns: minmax(auto, 420px) minmax(0, 1fr);
-  gap: 3.5rem;
+  grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
+  gap: 3rem;
   align-items: start;
   margin-bottom: 2.6rem;
 }
+.home-top .home-left { display: flex; flex-direction: column; gap: 1.8rem; }
+.home-top .home-right { min-width: 0; padding-top: 1rem; }
 .home-top .hero-section { margin-bottom: 0; }
-.home-top .home-intro { max-width: 90ch; margin-bottom: 0; padding-top: 1rem; }
+.home-top .home-intro { max-width: none; margin-bottom: 0; padding-top: 0; }
 .intro-eyebrow {
   display: inline-block;
   font-family: var(--font-mono);
@@ -185,6 +200,115 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
 }
 .home-intro { max-width: 95ch; margin-bottom: 2.6rem; }
 .intro-text { margin-bottom: 0.9rem; }
+.featured-label {
+  margin: 0 0 0.9rem;
+}
+
+.featured-card {
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--paper);
+  overflow: hidden;
+}
+.featured-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  overflow: hidden;
+}
+.featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.featured-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: var(--ink);
+}
+.featured-caption {
+  padding: 0.55rem 0.9rem;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: var(--border);
+}
+.featured-thumb-video {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink);
+}
+.featured-play { color: var(--paper); font-size: 1.1rem; }
+.featured-strip {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  background: var(--chrome);
+  border-top: var(--border);
+  overflow-x: auto;
+}
+.featured-thumb {
+  flex: 0 0 auto;
+  width: 92px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid transparent;
+  background: var(--ink);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity var(--transition), border-color var(--transition);
+}
+.featured-thumb:hover { opacity: 1; }
+.featured-thumb.active { opacity: 1; border-color: var(--amber); }
+.featured-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.featured-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-top: var(--border);
+  flex-wrap: wrap;
+}
+.featured-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.featured-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.featured-genre {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.featured-cta {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--amber);
+  transition: transform 0.08s ease;
+}
+.featured-cta:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
 
 /* ── Skills strip ──────────────────────────────────────────────────────── */
 .section-title { margin-bottom: 1.2rem; }
@@ -469,7 +593,7 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(17, 17, 17, 0.55);
+  background: var(--frame);
   overflow-y: auto;
   padding: 1.5rem 1.5rem 2rem;
 }

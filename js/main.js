@@ -129,9 +129,6 @@ const App = (() => {
           <h1 class="detail-title">${p.title}</h1>
           <div class="detail-genre">${p.genre}</div>
           <p class="detail-summary">${p.summary}</p>
-          <div class="detail-skills detail-skills-hero">
-            ${p.skills.map(s => `<span class="skill-tag large">${s}</span>`).join("")}
-          </div>
           <div class="detail-meta">
             <span class="meta-label">Platform:</span>
             ${p.platform.map(pl => `<span class="meta-value">${pl}</span>`).join("")}
@@ -340,12 +337,72 @@ const App = (() => {
   }
 
   // ── Init ─────────────────────────────────────────────────────────────────
+  function renderFeaturedProject(projectId) {
+    const host = document.getElementById("home-featured");
+    if (!host) return;
+    const p = findProject(projectId);
+    if (!p) return;
+
+    // Build gallery: screenshots first, trailer(s) last
+    const items = (p.screenshots || []).map(s => typeof s === "string" ? { type: "image", src: s } : { type: "image", src: s.src, caption: s.caption });
+    if (Array.isArray(p.youtubeIds)) p.youtubeIds.forEach(id => items.push({ type: "youtube", id, caption: "Trailer" }));
+    else if (p.youtubeId) items.push({ type: "youtube", id: p.youtubeId, caption: "Trailer" });
+    else if (p.video) items.push({ type: "video", src: p.video, caption: "Trailer" });
+    if (!items.length) return;
+
+    function stageHtml(it) {
+      if (it.type === "youtube") return `<iframe class="featured-frame" src="https://www.youtube.com/embed/${it.id}?rel=0" title="Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      if (it.type === "video") return `<video class="featured-frame" controls preload="metadata" playsinline><source src="${it.src}" type="video/mp4"></video>`;
+      return `<img class="featured-img" src="${it.src}" alt="">`;
+    }
+    function thumbHtml(it, i, active) {
+      const inner = (it.type === "youtube" || it.type === "video")
+        ? `<span class="featured-thumb-video"><span class="featured-play">&#9654;</span></span>`
+        : `<img src="${it.src}" alt="">`;
+      return `<button class="featured-thumb${active ? ' active' : ''}" data-i="${i}" aria-label="Item ${i + 1}">${inner}</button>`;
+    }
+
+    host.innerHTML = `
+      <div class="featured-card">
+        <div class="featured-stage" id="featured-stage">${stageHtml(items[0])}</div>
+        <div class="featured-caption" id="featured-caption" style="${items[0].caption ? '' : 'display:none'}">${items[0].caption || ''}</div>
+        <div class="featured-strip">
+          ${items.map((it, i) => thumbHtml(it, i, i === 0)).join("")}
+        </div>
+        <div class="featured-meta">
+          <div class="featured-title-row">
+            <span class="featured-name">${p.title}</span>
+            <span class="featured-genre">${p.genre}</span>
+          </div>
+          <a href="#project-${p.id}" class="featured-cta" data-project-id="${p.id}">See the full breakdown &rarr;</a>
+        </div>
+      </div>
+    `;
+
+    const stage = host.querySelector("#featured-stage");
+    const captionEl = host.querySelector("#featured-caption");
+    const thumbs = host.querySelectorAll(".featured-thumb");
+    thumbs.forEach(t => t.addEventListener("click", (e) => {
+      e.preventDefault();
+      const i = parseInt(t.dataset.i);
+      stage.innerHTML = stageHtml(items[i]);
+      thumbs.forEach((x, j) => x.classList.toggle("active", j === i));
+      captionEl.textContent = items[i].caption || "";
+      captionEl.style.display = items[i].caption ? "block" : "none";
+    }));
+    host.querySelector(".featured-cta").addEventListener("click", (e) => {
+      e.preventDefault();
+      openProjectDetail(p.id);
+    });
+  }
+
   function init() {
     initNav();
     initScrollSpy();
     initProjectFilter();
     initCategoryButtons();
     renderProjectGrid();
+    renderFeaturedProject("kaiju-corp");
     handleHash();
     document.getElementById("project-detail-overlay").addEventListener("click", (e) => {
       if (e.target.id === "project-detail-overlay") closeProjectDetail();
