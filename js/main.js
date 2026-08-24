@@ -46,10 +46,16 @@ const App = (() => {
     if (!container) return;
 
     let items = [];
-    if (!filter || filter === "tools")        items = items.concat(PROJECTS.tools.map(p => ({ ...p, category: "tools" })));
-    if (!filter || filter === "games")       items = items.concat(PROJECTS.games.map(p => ({ ...p, category: "games" })));
-    if (!filter || filter === "levelDesign") items = items.concat(PROJECTS.levelDesign.map(p => ({ ...p, category: "levelDesign" })));
+    if (filter === "tools")                   items = items.concat(PROJECTS.tools.map(p => ({ ...p, category: "tools" })));
+    if (!filter || filter === "games")        items = items.concat(PROJECTS.games.map(p => ({ ...p, category: "games" })));
+    if (!filter || filter === "levelDesign")  items = items.concat(PROJECTS.levelDesign.map(p => ({ ...p, category: "levelDesign" })));
     if (!filter || filter === "applications") items = items.concat(PROJECTS.applications.map(p => ({ ...p, category: "applications" })));
+
+    // All view: inject tools right after the first game (so Kaiju is 1st, tools 2nd, rest of games after)
+    if (!filter && PROJECTS.tools?.length) {
+      const toolItems = PROJECTS.tools.map(p => ({ ...p, category: "tools" }));
+      items.splice(1, 0, ...toolItems);
+    }
 
     // Cross-listed projects: shown first under an extra filter, but not duplicated in the "All" view
     if (filter) {

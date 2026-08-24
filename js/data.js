@@ -1,45 +1,6 @@
 const PROJECTS = {
   games: [
     {
-      id: "crossworld-chronicles",
-      title: "Crossworld Chronicles",
-      thumbnail: "assets/screenshots/CrossworldChronicleLogo.png",
-      thumbnailContain: true,
-      thumbnailPad: "0.2rem",
-      video: "",
-      youtubeId: "GJr4T5UpWUM",
-      screenshots: [
-        "assets/screenshots/CrossworldChronicles2.jpg",
-        "assets/screenshots/crossworldChronicles3.jpg",
-        "assets/screenshots/CrossworldChronicles4.jpg",
-        "assets/screenshots/CrossworldChronicles5.jpg",
-        "assets/screenshots/CrossworldChronicles1.jpg",
-        "assets/screenshots/CrossworldChronicles6.jpg"
-      ],
-      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time networked multiplayer.",
-      genre: "Multiplayer VR",
-      platform: ["PC VR"],
-      roles: ["Lead Developer"],
-      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Microsoft PlayFab", "#Scalable Structure", "#Azure DevOps"],
-      links: {},
-      detail: {
-        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. at the Centre for Digital Media. Built in Unity as a vertical slice, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other. The backend runs on Microsoft PlayFab, while the real-time gameplay stays in sync through an RPC layer built on a clean separation of data and logic.",
-        contribution: [
-          "Dual control systems for both Strategist and Explorer roles",
-          "Full weapons and combat system",
-          "Turret placement and enemy AI logic",
-          "Shared mana mechanic and health/pickup systems",
-          "Scriptable Object architecture for a scalable, designer-friendly structure",
-          "Backend work on client's tech stack",
-          "Used Azure DevOps for code quality checks and aligned the team with a consistent coding structure",
-          "Mentored developers on technical problems throughout the project",
-          "Managed client feedback, expectations and delivery throughout"
-        ],
-        challenge: "The hardest part was synchronising state between the two players over the network, specifically getting the RPC layer right. Both players act on shared state in real time, so every action had to be sent and received reliably between clients. Any mistake in what got sent, or when, meant the two players would end up seeing different versions of the game.",
-        solution: "I separated data from logic. The RPCs only carry data between players, cleanly sent and received, without directly driving gameplay logic. Each client then runs that logic locally off the synced data, so no one player's actions can corrupt the game state on someone else's end."
-      }
-    },
-    {
       id: "kaiju-corp",
       title: "Kaiju Corp",
       thumbnail: "assets/screenshots/KaijuCorpThumb.jpg",
@@ -75,6 +36,45 @@ const PROJECTS = {
       }
     },
     {
+      id: "crossworld-chronicles",
+      title: "Crossworld Chronicles",
+      thumbnail: "assets/screenshots/CrossworldChronicleLogo.png",
+      thumbnailContain: true,
+      thumbnailPad: "0.2rem",
+      video: "",
+      youtubeId: "GJr4T5UpWUM",
+      screenshots: [
+        "assets/screenshots/CrossworldChronicles2.jpg",
+        "assets/screenshots/crossworldChronicles3.jpg",
+        "assets/screenshots/CrossworldChronicles4.jpg",
+        "assets/screenshots/CrossworldChronicles5.jpg",
+        "assets/screenshots/CrossworldChronicles1.jpg",
+        "assets/screenshots/CrossworldChronicles6.jpg"
+      ],
+      summary: "A cooperative multiplayer VR game built as a client project with Coal Car Studio Ltd., featuring two distinct player roles and real-time networked multiplayer.",
+      genre: "Multiplayer VR",
+      platform: ["PC VR"],
+      roles: ["Developer"],
+      skills: ["#Unity", "#C#", "#VR", "#Multiplayer", "#Microsoft PlayFab", "#Scalable Structure", "#Azure DevOps"],
+      links: {},
+      detail: {
+        overview: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. at the Centre for Digital Media. Built in Unity as a vertical slice, it has two player roles: the Strategist places turrets from an overhead view, and the Explorer fights through the level in first-person VR. A shared mana pool keeps both players genuinely dependent on each other. The backend runs on Microsoft PlayFab, while the real-time gameplay stays in sync through an RPC layer built on a clean separation of data and logic.",
+        contribution: [
+          "Dual control systems for both Strategist and Explorer roles",
+          "Full weapons and combat system",
+          "Turret placement and enemy AI logic",
+          "Shared mana mechanic and health/pickup systems",
+          "Scriptable Object architecture for a scalable, designer-friendly structure",
+          "Backend work on client's tech stack",
+          "Used Azure DevOps for code quality checks and aligned the team with a consistent coding structure",
+          "Mentored developers on technical problems throughout the project",
+          "Managed client feedback, expectations and delivery throughout"
+        ],
+        challenge: "The hardest part was synchronising state between the two players over the network, specifically getting the RPC layer right. Both players act on shared state in real time, so every action had to be sent and received reliably between clients. Any mistake in what got sent, or when, meant the two players would end up seeing different versions of the game.",
+        solution: "I separated data from logic. The RPCs only carry data between players, cleanly sent and received, without directly driving gameplay logic. Each client then runs that logic locally off the synced data, so no one player's actions can corrupt the game state on someone else's end."
+      }
+    },
+    {
       id: "what-a-fridge",
       title: "What The Fridge?!",
       thumbnail: "assets/screenshots/WhataFridgeLogo.png",
@@ -84,7 +84,7 @@ const PROJECTS = {
       summary: "A stealth game where players must capture scandalous celebrity moments without being noticed.",
       genre: "Stealth",
       platform: ["PC"],
-      roles: ["Lead Programmer", "Game Designer"],
+      roles: ["Developer", "Game Designer"],
       skills: ["#Unity", "#C#", "#AI", "#Stealth System", "#Photo Recognition System"],
       links: {},
       screenshots: [
@@ -125,7 +125,7 @@ const PROJECTS = {
       summary: "A first-person parkour game focused on fluid movement, combining a grappling hook with wall-running into one continuous flow.",
       genre: "Parkour FPS",
       platform: ["PC"],
-      roles: ["Game Developer", "Level Designer"],
+      roles: ["Developer", "Level Designer"],
       skills: ["#Unreal", "#C++", "#Level Design", "#Momentum System"],
       extraCategories: ["levelDesign"],
       links: {},
@@ -152,7 +152,7 @@ const PROJECTS = {
       summary: "A fast-paced action game where rune-casting and kinetic combat combine into something pretty satisfying.",
       genre: "Action",
       platform: ["PC"],
-      roles: ["Gameplay Programmer", "VFX Artist"],
+      roles: ["Developer", "VFX Artist"],
       skills: ["#Unity", "#C#", "#VFX", "#Shader Graph", "#Combat Design", "#Shape Validation"],
       links: {},
       detail: {
@@ -209,7 +209,7 @@ const PROJECTS = {
       summary: "A 2D precise platformer following two spirits through a frozen mythological world.",
       genre: "Platformer",
       platform: ["PC"],
-      roles: ["Lead Game Designer", "Level Designer", "Programmer"],
+      roles: ["Lead Game Designer", "Level Designer", "Developer"],
       skills: ["#Unity", "#C#", "#Level Design", "#Coyote Time"],
       links: {},
       detail: {
