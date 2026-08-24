@@ -31,8 +31,8 @@ const PROJECTS = {
           "Networking for PC players over Photon Fusion",
           "Custom Unity tool to streamline the art implementation pipeline"
         ],
-        challenge: "A lot of the visual effects were hard to observe or edit. My teammate and I lost hours previewing particle systems by manually toggling each child object under the VFX group on and off, and Unity's built-in preview cannot stop at a specific frame, which made it painful to check whether a change had actually landed on the exact moment we cared about.",
-        solution: "I considered living with it or buying a preview package from the Asset Store, but those only preview VFX without letting you edit them, so I would still have been switching windows constantly, and paying for an asset on a student project was hard to justify. Building a tool would cost development days we did not have, but the manual clicking was costing us more. So I built a custom editor window that previews any frame and holds there, steps backwards, exposes the sub particle systems so you can edit or toggle them in place, and exports as a new prefab that leaves the original untouched. That tool became <a href=\"#project-vfx-workbench\" data-project-id=\"vfx-workbench\" class=\"detail-link\">VFX Workbench</a>. Looking back, cutting features like a customised anchor and background to ship fast was the right call, but if I did it again I would ask my teammate what he needed first, because the first version was designed around my own workflow."
+        challenge: "Kaiju Corp is a cross-platform multiplayer game built with Photon Fusion, taken from concept to a fully playable build in under three months by a four-person team. On the tools side, a lot of the visual effects were hard to observe or edit. My teammate and I lost hours previewing particle systems by manually toggling each child object under the VFX group on and off, and Unity's built-in preview cannot stop at a specific frame, which made it painful to check whether a change had actually landed on the exact moment we cared about.",
+        solution: "I considered living with it or buying a preview package from the Asset Store, but those only preview VFX without letting you edit them, so I would still have been switching windows constantly, and paying for an asset on a student project was hard to justify. Building a tool would cost development days we did not have, but the manual clicking was costing us more. So I built a custom editor window that previews any frame and holds there, steps backwards, exposes the sub particle systems so you can edit or toggle them in place, and exports as a new prefab that leaves the original untouched. That tool became <a href=\"#project-vfx-workbench\" data-project-id=\"vfx-workbench\" class=\"detail-link\">VFX Workbench</a>, and it stayed with me beyond Kaiju Corp. Alongside it, I focused on the PC player experience: the Three Cs of character, camera and controls, the weapon system, UI implementation, and the networking that keeps PC players in sync. Looking back, cutting features like a customised anchor and background to ship fast was the right call, but if I did it again I would ask my teammate what he needed first, because the first version was designed around my own workflow."
       }
     },
     {
@@ -70,8 +70,8 @@ const PROJECTS = {
           "Mentored developers on technical problems throughout the project",
           "Managed client feedback, expectations and delivery throughout"
         ],
-        challenge: "The hardest part was synchronising state between the two players over the network, specifically getting the RPC layer right. Both players act on shared state in real time, so every action had to be sent and received reliably between clients. Any mistake in what got sent, or when, meant the two players would end up seeing different versions of the game.",
-        solution: "I separated data from logic. The RPCs only carry data between players, cleanly sent and received, without directly driving gameplay logic. Each client then runs that logic locally off the synced data, so no one player's actions can corrupt the game state on someone else's end."
+        challenge: "Crossworld Chronicles is a cooperative multiplayer VR game made as a client project with Coal Car Studio Ltd. at the Centre for Digital Media, built in Unity as a vertical slice with two player roles: a Strategist placing turrets from an overhead view and an Explorer fighting through the level in first-person VR, held together by a shared mana pool that makes both players genuinely dependent on each other. The hardest part was synchronising state between the two players over the network, specifically getting the RPC layer right. Both players act on shared state in real time, so every action had to be sent and received reliably between clients. Any mistake in what got sent, or when, meant the two players would end up seeing different versions of the game.",
+        solution: "I separated data from logic. The RPCs only carry data between players, cleanly sent and received, without directly driving gameplay logic. Each client then runs that logic locally off the synced data, so no one player's actions can corrupt the game state on someone else's end. Backed by Microsoft PlayFab on the backend, that split kept both players' worlds consistent across the slice and let us ship a stable cooperative build to the client."
       }
     },
     {
@@ -100,10 +100,13 @@ const PROJECTS = {
         contribution: [
           "Enemy AI patrol and detection via NavMesh and Finite State Machines",
           "Player controls and third-person camera rig",
-          "Photo analysis system evaluating shot composition and subject detection"
+          "Photo analysis system evaluating shot composition and subject detection",
+"Raycast-based photo scoring: subject visibility, framing and occlusion checks at capture time",
+"Stealth loop tying NPC awareness to player positioning and disguise",
+"UI and feedback for photo capture, scoring and mission progression"
         ],
-        challenge: "Making the photo system actually judge a photo. The game needed to evaluate whether a screenshot the player took counted as a scandalous moment, which meant analyzing shot composition and detecting which subjects were in frame at the moment of capture.",
-        solution: "I built a raycast-based analysis system that checks subject visibility, framing, and occlusion at the instant the photo is taken, then scores the shot. Combining that with FSM-driven NPC behavior meant the moments worth photographing emerged naturally from the AI rather than being scripted."
+        challenge: "What The Fridge?! is a third-person stealth game where players blend in among NPCs and photograph scandalous moments between celebrities without getting caught, so timing, positioning and awareness are everything. The hardest system to get right was making the photo actually judge itself. The game needed to evaluate whether a screenshot the player took counted as a scandalous moment, which meant analysing shot composition and detecting which subjects were in frame at the moment of capture.",
+        solution: "I built a raycast-based analysis system that checks subject visibility, framing and occlusion at the instant the photo is taken, then scores the shot. Combining that with FSM-driven NPC behaviour meant the moments worth photographing emerged naturally from the AI rather than being scripted, so every playthrough surfaced its own scandals rather than replaying the same set pieces."
       }
     },
     {
@@ -134,10 +137,13 @@ const PROJECTS = {
         contribution: [
           "First-person movement programming: grapple and wall-running",
           "Momentum system that tracks player speed and applies it across movement types",
-          "Level design built around the movement mechanics"
+          "Level design built around the movement mechanics",
+"Recalculating momentum on each player state change to keep speed bounded",
+"Grapple hook implementation: aiming, attach, swing and release physics",
+"First-person camera and input polish tuned around high-speed traversal"
         ],
-        challenge: "The hardest mechanic to get right was wall-running. Because momentum kept stacking while the player was on the wall, their speed would climb to an insane level, to the point where the character became almost impossible to control.",
-        solution: "I solved it by actively tracking momentum and recalculating it whenever the player's actions or state changed, instead of letting speed accumulate unchecked. Tying the momentum value to those state changes kept movement fast but controllable, which also made the levels far easier to design around."
+        challenge: "Grapple Runner is a first-person parkour game built to give players a fluid, continuous sense of movement by combining a grappling hook with wall-running, with the levels designed around those mechanics. The hardest mechanic to get right was wall-running. Because momentum kept stacking while the player was on the wall, their speed would climb to an insane level, to the point where the character became almost impossible to control.",
+        solution: "I solved it by actively tracking momentum and recalculating it whenever the player's actions or state changed, instead of letting speed accumulate unchecked. Tying the momentum value to those state changes kept movement fast but controllable, which also made the levels far easier to design around, and let the grapple and wall-running actually chain together into the continuous flow the game was built for."
       }
     },
     {
@@ -159,10 +165,13 @@ const PROJECTS = {
         overview: "An action game built around chaining rune spells together for big kinetic combos. You're pitted against hordes of enemies and your job is to find the combo that feels the most satisfying to pull off.",
         contribution: [
           "Enemy AI with per-type combat abilities that adapt to player behaviour",
-          "Full VFX pipeline from particle systems to shader-driven effects"
+          "Full VFX pipeline from particle systems to shader-driven effects",
+"Shape-drawing validation tool: generates pivots along the player's stroke as they draw",
+"Tolerance circles per pivot so imperfect hand-drawn shapes still register",
+"Recorded-shape library of real player attempts, matched against by closest-fit lookup"
         ],
-        challenge: "Spells are cast by drawing shapes, and most spells are a sequence of several shapes rather than just one. The challenge was building a drawing validation system that could measure how accurately a player drew each shape, then match that sequence against a spell recipe to work out which spell they were casting. It had to be precise enough to tell similar shapes apart, but forgiving enough that a hand-drawn shape never has to be perfect.",
-        solution: "I built a tool that generates pivot points along the player's stroke as they draw, then compares those pivots against the pivots of each standard shape. To handle the fact that no one draws a shape perfectly, each standard pivot creates a small tolerance circle around itself, and if the player's matching pivot lands inside that circle it counts as correct. On top of that, I recorded a large set of real, imperfectly drawn shapes, each stored with its pivot vector values as list data. When the game validates a drawing, it compares against that library and returns the closest match, so a messy but recognisable shape still resolves to the right spell."
+        challenge: "Runekinetic is an action game built around chaining rune spells together for big kinetic combos, pitted against hordes of enemies where your job is to find the combo that feels the most satisfying to pull off. Spells are cast by drawing shapes, and most spells are a sequence of several shapes rather than just one. The challenge was building a drawing validation system that could measure how accurately a player drew each shape, then match that sequence against a spell recipe to work out which spell they were casting. It had to be precise enough to tell similar shapes apart, but forgiving enough that a hand-drawn shape never has to be perfect.",
+        solution: "I built a tool that generates pivot points along the player's stroke as they draw, then compares those pivots against the pivots of each standard shape. To handle the fact that no one draws a shape perfectly, each standard pivot creates a small tolerance circle around itself, and if the player's matching pivot lands inside that circle it counts as correct. On top of that, I recorded a large set of real, imperfectly drawn shapes, each stored with its pivot vector values as list data. When the game validates a drawing, it compares against that library and returns the closest match, so a messy but recognisable shape still resolves to the right spell, and combos stay fluent instead of getting broken up by rejected inputs."
       }
     },
     {
@@ -186,10 +195,13 @@ const PROJECTS = {
         contribution: [
           "Gameplay systems and physics-based movement",
           "Custom momentum and bounce system",
-          "Hand-drawn main character and all animation clips"
+          "Hand-drawn main character and all animation clips",
+"Level design across the aquarium environments",
+"Newton's-third-law bounce model tuned for consistent feel across surfaces",
+"Full solo delivery: design, art, animation and code owned end to end"
         ],
-        challenge: "The core of the game is the squid bouncing around the aquarium, and it has to keep its momentum as it bounces instead of bleeding off speed. That made the momentum calculation the most important system in the whole game. Unity's built-in physics wasn't stable enough to give consistent, believable bounces, so I couldn't rely on it for the feel I needed.",
-        solution: "I built my own momentum system using Newton's third law as the reference, modelling each bounce the way a ball actually rebounds off a surface in reality. Handling the momentum myself instead of leaning on Unity's physics meant the squid reacts consistently and keeps its speed through every bounce, so the movement stays predictable and feels right."
+        challenge: "Squishy Squid is a physics-driven game where you pilot a squishy squid through ocean environments eating everything in your path, with the main character, all animation clips and the game logic built from scratch. The core of the game is the squid bouncing around the aquarium, and it has to keep its momentum as it bounces instead of bleeding off speed. That made the momentum calculation the most important system in the whole game. Unity's built-in physics wasn't stable enough to give consistent, believable bounces, so I couldn't rely on it for the feel I needed.",
+        solution: "I built my own momentum system using Newton's third law as the reference, modelling each bounce the way a ball actually rebounds off a surface in reality. Handling the momentum myself instead of leaning on Unity's physics meant the squid reacts consistently and keeps its speed through every bounce, so the movement stays predictable, and the whole game feel, from art through animation through motion, came together under a single vision."
       }
     },
     {
@@ -220,8 +232,8 @@ const PROJECTS = {
           "Custom character controller built for a precise, responsive feel",
           "All levels designed with increasing complexity"
         ],
-        challenge: "The biggest challenge was how jumping felt between platforms. Players naturally want to get as close to the edge as possible before leaping, so they often press jump a fraction of a second after they have already left the platform. But the game constantly runs a ground check to decide whether a jump is allowed, so those slightly late presses were being rejected, and the movement felt unresponsive and punishing.",
-        solution: "I added coyote time: a short grace window right after the player leaves a platform during which a jump still counts, even though they are technically no longer on the ground. That small buffer makes those slightly late presses register the way players expect, so the character feels far more responsive and under their control."
+        challenge: "Atka and Iku is a 2D precise platformer set in a mythological arctic world, where players aim at the right position to trigger a movement boost and a resource system limits how much fire they can shoot, pushing them to strategise before acting rather than moving on instinct. The biggest challenge was how jumping felt between platforms. Players naturally want to get as close to the edge as possible before leaping, so they often press jump a fraction of a second after they have already left the platform. But the game constantly runs a ground check to decide whether a jump is allowed, so those slightly late presses were being rejected, and the movement felt unresponsive and punishing.",
+        solution: "I added coyote time: a short grace window right after the player leaves a platform during which a jump still counts, even though they are technically no longer on the ground. That small buffer makes those slightly late presses register the way players expect, so the character feels far more responsive and under their control, and the strategise-first design gets the tight moment-to-moment execution it needs to actually land."
       }
     }
   ],
@@ -244,10 +256,13 @@ const PROJECTS = {
         overview: "A multiplayer deathmatch map for Garry's Mod set in a dense woodland clearing with a central fort. Built to encourage diverse combat scenarios across different play styles.",
         contribution: [
           "Full map layout designed from scratch",
-          "Iterated on chokepoints and spawn balance through playtests"
+          "Iterated on chokepoints and spawn balance through playtests",
+"Asymmetric sightlines to prevent snipers from dominating open ground",
+"Vertical routes that give close-range and flanking players real options",
+"Spawn placement balanced through repeated playtests to keep fights fresh"
         ],
-        challenge: "Making one map serve every play style. A deathmatch map with a central fort naturally favors defenders and long sightlines, which risks stale gameplay where snipers dominate and close-range players have no route in.",
-        solution: "I designed asymmetric sightlines and vertical routes so aggressive, sneaky, and defensive players all have viable options, then iterated on chokepoints and spawn balance through repeated playtests. Watching how small layout tweaks completely changed the feel of a fight shaped how I approach space design now."
+        challenge: "Lost in the Woods is a multiplayer deathmatch map for Garry's Mod, set in a dense woodland clearing with a central fort and built to encourage diverse combat scenarios across different play styles. The hardest part was making one map actually serve every play style. A deathmatch map with a central fort naturally favours defenders and long sightlines, which risks stale gameplay where snipers dominate and close-range players have no route in.",
+        solution: "I designed asymmetric sightlines and vertical routes so aggressive, sneaky and defensive players all have viable options, then iterated on chokepoints and spawn balance through repeated playtests. Watching how small layout tweaks completely changed the feel of a fight shaped how I approach space design now, and the map ended up supporting the mix of aggressive rushes, flanks and long-range holds it was built to encourage."
       }
     }
   ],
@@ -275,10 +290,13 @@ const PROJECTS = {
         overview: "VFX Workbench is a Unity editor tool built to make implementing VFX less painful. Assign a particle system prefab and the window breaks it down into every sub particle system, each one toggleable on or off directly in the tool. A built-in preview means you never have to drag an effect into the scene just to look at it, and a stage slider with replay lets you inspect any point in the effect's lifetime. Any particle system can be edited in place, and when the tweaks are done you export a new prefab, leaving the original untouched.",
         contribution: [
           "Built the entire tool solo, from the editor window and UI to the preview rendering and prefab export",
-          "Came out of my own frustration with Unity requiring effects to be placed in the scene just to observe them"
+          "Came out of my own frustration with Unity requiring effects to be placed in the scene just to observe them",
+"Frame-scrubbing preview rendered at any tick of the effect's timeline",
+"Sub particle systems exposed for toggling and in-place editing without touching the scene",
+"Fresh-prefab export so the original asset is never modified"
         ],
-        challenge: "The hardest part was stage viewing. Unity's particle systems are built to play forward in real time, so there is no direct way to hold an effect at an arbitrary point in its lifetime, which is exactly what you need when you are tuning timing and want to study one specific moment.",
-        solution: "I made the editor render the preview at a specific tick on the effect's timeline, rather than letting the particle system play through in real time. When a developer wants to see the effect running continuously, the tool steps through successive ticks along the timeline, resetting the system between each one instead of playing straight through to the end. That makes any stage of the effect directly addressable, so you can hold on a single moment or scrub across the whole lifetime."
+        challenge: "VFX Workbench is a Unity editor tool built to make implementing VFX less painful, so artists can preview, isolate and edit particle systems without ever placing them in the scene. The hardest part was stage viewing. Unity's particle systems are built to play forward in real time, so there is no direct way to hold an effect at an arbitrary point in its lifetime, which is exactly what you need when you are tuning timing and want to study one specific moment.",
+        solution: "I made the editor render the preview at a specific tick on the effect's timeline, rather than letting the particle system play through in real time. When a developer wants to see the effect running continuously, the tool steps through successive ticks along the timeline, resetting the system between each one instead of playing straight through to the end. That makes any stage of the effect directly addressable, so you can hold on a single moment or scrub across the whole lifetime. Around that core, the tool exposes every sub particle system for in-place editing and exports a fresh prefab so the original stays untouched, and it's now saved the team days of manual clicking on every project it's used on."
       }
     }
   ]

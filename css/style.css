@@ -643,11 +643,16 @@ h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); }
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
   gap: 2.6rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .detail-header { min-width: 0; max-width: 900px; }
-.detail-hero.has-media .detail-header { max-width: none; }
+.detail-hero.has-media .detail-header {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .detail-media { min-width: 0; margin-bottom: 0.8rem; }
 .detail-skills-hero { margin: 0.9rem 0 1.1rem; }
 

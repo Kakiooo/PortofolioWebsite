@@ -170,22 +170,9 @@ const App = (() => {
       <div class="detail-body">
         <div class="detail-text-grid">
           <div class="detail-col detail-col-left">
-            <div class="detail-block">
-              <h2>Overview</h2>
-              <p>${p.detail.overview}</p>
-            </div>
-            <div class="detail-block">
-              <h2>My Contribution</h2>
-              ${Array.isArray(p.detail.contribution)
-                ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
-                : `<p>${p.detail.contribution}</p>`
-              }
-            </div>
-          </div>
-          <div class="detail-col detail-col-right">
             ${p.detail.challenge ? `
             <div class="detail-block">
-              <h2>Biggest Challenge</h2>
+              <h2>The Challenge</h2>
               <p>${p.detail.challenge}</p>
             </div>
             ` : ""}
@@ -195,6 +182,15 @@ const App = (() => {
               <p>${p.detail.solution}</p>
             </div>
             ` : ""}
+          </div>
+          <div class="detail-col detail-col-right">
+            <div class="detail-block">
+              <h2>My Contribution</h2>
+              ${Array.isArray(p.detail.contribution)
+                ? `<ul class="contribution-list">${p.detail.contribution.map(b => `<li>${b}</li>`).join("")}</ul>`
+                : `<p>${p.detail.contribution}</p>`
+              }
+            </div>
           </div>
         </div>
       </div>
