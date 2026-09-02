@@ -66,6 +66,9 @@ const App = (() => {
       items = crossListed.concat(items);
     }
 
+    // Hide any projects marked hidden (kept in data but not shown publicly)
+    items = items.filter(p => !p.hidden);
+
     container.innerHTML = items.map(p => `
       <div class="project-card-wrapper" data-id="${p.id}" data-category="${p.category}">
         <div class="project-card">

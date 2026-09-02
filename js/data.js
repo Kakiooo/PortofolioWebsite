@@ -31,8 +31,8 @@ const PROJECTS = {
           "Networking for PC players over Photon Fusion",
           "Custom Unity tool to streamline the art implementation pipeline"
         ],
-        challenge: "A lot of the visual effects were hard to observe or edit. My teammate and I lost hours previewing particle systems by manually toggling each child object under the VFX group on and off, and Unity's built-in preview cannot stop at a specific frame, which made it painful to check whether a change had actually landed on the exact moment we cared about.",
-        solution: "I considered living with it or buying a preview package from the Asset Store, but those only preview VFX without letting you edit them, so I would still have been switching windows constantly, and paying for an asset on a student project was hard to justify. Building a tool would cost development days we did not have, but the manual clicking was costing us more. So I built a custom editor window that previews any frame and holds there, steps backwards, exposes the sub particle systems so you can edit or toggle them in place, and exports as a new prefab that leaves the original untouched. That tool became <a href=\"#project-vfx-workbench\" data-project-id=\"vfx-workbench\" class=\"detail-link\">VFX Workbench</a>. Looking back, cutting features like a customised anchor and background to ship fast was the right call, but if I did it again I would ask my teammate what he needed first, because the first version was designed around my own workflow."
+        challenge: "The character control system was too heavy to replicate over the network. Because so much of it was being synced between players, the game was hitting undesired lag: remote players stuttered, and inputs stopped feeling responsive. Left as it was, the multiplayer experience the whole game was built around would not have held up.",
+        solution: "I went through the entire control system and worked out which pieces genuinely needed to be shared between players and which were only ever consumed locally. Anything that didn't have to travel over the network, I stopped syncing. On top of that, I optimised the render side by cutting down draw batches, keeping the models in good shape while trading unnecessary work for a smoother experience. The result was a control system that stayed faithful to the design but ran cleanly across the network, so the multiplayer play felt as responsive as the local one."
       }
     },
     {
@@ -128,16 +128,14 @@ const PROJECTS = {
       summary: "A first-person parkour game focused on fluid movement, combining a grappling hook with wall-running into one continuous flow.",
       genre: "Parkour FPS",
       platform: ["PC"],
-      roles: ["Developer", "Level Designer"],
-      skills: ["#Unreal", "#C++", "#Level Design", "#Momentum System"],
-      extraCategories: ["levelDesign"],
+      roles: ["Developer"],
+      skills: ["#Unreal", "#C++", "#Momentum System"],
       links: {},
       detail: {
-        overview: "Grapple Runner is a first-person parkour game built to give players a fluid, continuous sense of movement by combining a grappling hook with wall-running. I handled the level design and the movement programming, polishing the wall-running and grapple mechanics with a momentum system that actively tracks the player's speed and feeds it into each type of movement.",
+        overview: "Grapple Runner is a first-person parkour game built to give players a fluid, continuous sense of movement by combining a grappling hook with wall-running. I handled the movement programming, polishing the wall-running and grapple mechanics with a momentum system that actively tracks the player's speed and feeds it into each type of movement.",
         contribution: [
           "First-person movement programming: grapple and wall-running",
           "Momentum system that tracks player speed and applies it across movement types",
-          "Level design built around the movement mechanics",
 "Recalculating momentum on each player state change to keep speed bounded",
 "Grapple hook implementation: aiming, attach, swing and release physics",
 "First-person camera and input polish tuned around high-speed traversal"
@@ -196,7 +194,6 @@ const PROJECTS = {
           "Gameplay systems and physics-based movement",
           "Custom momentum and bounce system",
           "Hand-drawn main character and all animation clips",
-"Level design across the aquarium environments",
 "Newton's-third-law bounce model tuned for consistent feel across surfaces",
 "Full solo delivery: design, art, animation and code owned end to end"
         ],
@@ -221,8 +218,8 @@ const PROJECTS = {
       summary: "A 2D precise platformer following two spirits through a frozen mythological world.",
       genre: "Platformer",
       platform: ["PC"],
-      roles: ["Lead Game Designer", "Level Designer", "Developer"],
-      skills: ["#Unity", "#C#", "#Level Design", "#Coyote Time"],
+      roles: ["Lead Game Designer", "Developer"],
+      skills: ["#Unity", "#C#", "#Coyote Time"],
       links: {},
       detail: {
         overview: "A 2D precise platformer set in a mythological arctic world. Players aim at the right position to trigger a movement boost, and a resource system limits how much fire they can shoot, which pushes them to strategise before acting rather than moving on instinct.",
@@ -240,6 +237,7 @@ const PROJECTS = {
   levelDesign: [
     {
       id: "lost-in-the-woods",
+      hidden: true,
       title: "Lost in the Woods",
       thumbnail: "assets/screenshots/LostInWoods0.png",
       screenshots: [
